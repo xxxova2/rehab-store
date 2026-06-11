@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 
-const Spline = dynamic(() => import('@splinetool/react-spline'), { ssr: false });
+const SplineScene = dynamic(() => import('./spline-scene').then((m) => m.SplineScene), { ssr: false });
 
 export function SplineBackground() {
   const [loaded, setLoaded] = useState(false);
@@ -20,7 +20,7 @@ export function SplineBackground() {
         background: 'var(--md-sys-color-surface)',
       }}
     >
-      <Spline
+      <SplineScene
         scene="https://prod.spline.design/F6oc-ZbDEretRj3S/scene.splinecode"
         onLoad={() => setLoaded(true)}
       />
