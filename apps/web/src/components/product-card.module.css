@@ -1,0 +1,98 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(10, 8, 40, 0.52);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.18), 0 0 40px rgba(99, 102, 241, 0.25);
+}
+
+.cover {
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: end center;
+  padding: 1rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, 0.15), transparent 70%);
+  z-index: -1;
+}
+
+.info {
+  padding: 1rem 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.titleAr {
+  font-family: var(--font-arabic);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  line-height: 1.3;
+}
+
+.titleEn {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  margin: 0 0 0.15rem 0;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.4;
+}
+
+.price {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0.3rem 0 0.6rem;
+  color: var(--md-sys-color-on-surface);
+}
+
+.viewBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--md-sys-color-outline);
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.viewBtn:hover {
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+:lang(ar) .titleAr {
+  font-weight: 700;
+}
+
+:lang(ar) .titleEn {
+  font-weight: 300;
+}

@@ -1,14 +1,17 @@
 import { HomeTabNav } from '@/components/home-tab-nav';
-import { HomeProductShowcase } from '@/components/home-product-showcase';
+import { RecentlyAdded } from '@/components/recently-added';
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+
   return (
     <>
-      {/* Tab bar fixed at top */}
       <HomeTabNav />
-
-      {/* 3 featured product cards fixed at bottom — Spline BG shows in between */}
-      <HomeProductShowcase />
+      <RecentlyAdded locale={locale} />
     </>
   );
 }

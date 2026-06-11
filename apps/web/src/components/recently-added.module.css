@@ -1,0 +1,72 @@
+.section {
+  padding: 6rem 1.5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.head {
+  margin-bottom: 1.5rem;
+}
+
+.titleAr {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.titleEn {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 400;
+  margin: 0.25rem 0 0 0;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.strip {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+.strip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.strip::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: 4px;
+}
+
+.stripItem {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 640px) {
+  .stripItem {
+    flex: 0 0 280px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+
+  .stripItem {
+    flex: unset;
+    scroll-snap-align: unset;
+  }
+}

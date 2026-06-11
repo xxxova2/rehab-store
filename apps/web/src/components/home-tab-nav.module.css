@@ -127,6 +127,31 @@
   box-shadow: 0 0 18px rgba(129, 140, 248, 0.35);
 }
 
+/* ── Language toggle button ── */
+.langToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body, 'DM Sans', system-ui, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.langToggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
 /* ── Mobile: collapse tabs behind hamburger (future) — for now hide controls text ── */
 @media (max-width: 768px) {
   .tabBar {

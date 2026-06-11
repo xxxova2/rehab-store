@@ -1,6 +1,15 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { ProductGrid } from '@/components/product-grid';
+import { getAllProducts, getAllCollections } from '@/lib/products';
+import { getCurrentCurrency } from '@/lib/currency-server';
+import { Link } from '../../../../../i18n/routing';
+import { ProductCard } from '@/components/product-card';
 import type { AppLocale, Currency } from '@rehab/types';
+import styles from './shop.module.css';
+
+function pick(value: { en: string; ar: string } | undefined, locale: AppLocale, fallback = ''): string {
+  if (!value) return fallback;
+  return value[locale] ?? value.en ?? fallback;
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -13,19 +22,20 @@ export default async function ShopPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ cat?: string }>;
+  searchParams: Promise<{ collection?: string }>;
 }) {
   const { locale } = await params;
-  const { cat } = await searchParams;
+  const { collection } = await searchParams;
   setRequestLocale(locale);
   const t = await getTranslations('shop');
+  const currency = await getCurrentCurrency(locale as AppLocale);
 
-  const { cookies } = await import('next/headers');
-  const store = await cookies();
-  const cookie = store.get('REHAB_CURRENCY')?.value as Currency | undefined;
-  const currency: Currency = (cookie && ['AED', 'SAR', 'KWD', 'EGP', 'USD', 'EUR', 'GBP'].includes(cookie))
-    ? cookie
-    : 'AED';
+  const allProducts = await getAllProducts();
+  const allCollections = await getAllCollections();
+
+  const products = collection
+    ? allProducts.filter((p) => p.collection === collection)
+    : allProducts;
 
   return (
     <section className="section" data-testid="shop-page">
@@ -35,7 +45,39 @@ export default async function ShopPage({
           {t('lede')}
         </p>
       </div>
-      <ProductGrid locale={locale as AppLocale} currency={currency} category={cat} />
+
+      <div className={styles.filterBar}>
+        <Link
+          href="/shop"
+          className={`${styles.filterBtn} ${!collection ? styles.filterActive : ''}`}
+        >
+          {t('filterAll')}
+        </Link>
+        {allCollections.map((col) => {
+          const isActive = collection === col.slug;
+          return (
+            <Link
+              key={col.slug}
+              href={(isActive ? '/shop' : `/shop?collection=${col.slug}`) as any}
+              className={`${styles.filterBtn} ${isActive ? styles.filterActive : ''}`}
+            >
+              {pick(col.title, locale as AppLocale)}
+            </Link>
+          );
+        })}
+      </div>
+
+      <div className={styles.grid}>
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            locale={locale as AppLocale}
+            currency={currency}
+            viewLabel={t('view')}
+          />
+        ))}
+      </div>
     </section>
   );
 }

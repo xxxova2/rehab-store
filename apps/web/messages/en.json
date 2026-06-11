@@ -15,6 +15,7 @@
   },
   "nav": {
     "home": "Home",
+    "brand": "rehab.",
     "shop": "Shop",
     "new": "New",
     "dresses": "Dresses",
@@ -26,6 +27,7 @@
     "lookbook": "Lookbook",
     "about": "About",
     "cart": "Cart",
+    "login": "Log in",
     "homeAria": "Rehab Store home",
     "primary": "Primary"
   },
@@ -48,6 +50,8 @@
     "usd": "USD"
   },
   "home": {
+    "recentlyAdded": "Just Arrived",
+    "view": "View",
     "socialProof": "Loved by 2,700+ women",
     "headline": "Wear the recovery.",
     "sub": "Editorial womenswear built around the rituals of getting dressed on the other side of something. Bone-and-rose palette, 3D garment viewer, AR try-on.",
@@ -105,6 +109,8 @@
   "shop": {
     "title": "Shop",
     "lede": "Faceted catalog lands in Phase 1.",
+    "filterAll": "All",
+    "view": "View",
     "comingSoon": "Coming soon",
     "cardBody": "Browse the upcoming {category} collection — 3D garment viewer and size-inclusive fit data."
   },
