@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  gap: 0.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--md-sys-color-on-surface-variant);
+  margin: 0;
+  max-width: 400px;
+}
+
+.retryBtn {
+  margin-top: 0.75rem;
+  padding: 0.625rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+}

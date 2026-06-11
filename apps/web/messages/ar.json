@@ -1,0 +1,738 @@
+{
+  "common": {
+    "appName": "Rehab Store",
+    "tagline": "الموضة هي التأهيل الثاني",
+    "loading": "جارٍ التحميل…",
+    "comingSoon": "قريباً",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "viewMore": "عرض المزيد"
+  },
+  "meta": {
+    "title": "Rehab Store — الموضة هي الأساس ونحن لنا لمستنا الخاصة",
+    "description": "متجر ريهاب — متجر ملابس نسائية ثلاثي الأبعاد. تصميم تحريري وأزياء للتعافي.",
+    "ogSiteName": "ريهاب ستور"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "new": "الجديد",
+    "dresses": "فساتين",
+    "tops": "بلوزات",
+    "bottoms": "بناطيل",
+    "knitwear": "تريكو",
+    "outerwear": "معاطف",
+    "accessories": "إكسسوارات",
+    "lookbook": "لوك بوك",
+    "about": "من نحن",
+    "cart": "السلة",
+    "homeAria": "الصفحة الرئيسية لمتجر ريهاب",
+    "primary": "التنقل الرئيسي"
+  },
+  "theme": {
+    "label": "مظهر الألوان",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "تلقائي"
+  },
+  "locale": {
+    "label": "اللغة",
+    "switch": "اللغة"
+  },
+  "currency": {
+    "label": "العملة",
+    "aed": "درهم",
+    "sar": "ريال",
+    "kwd": "دينار",
+    "egp": "جنيه",
+    "usd": "دولار"
+  },
+  "home": {
+    "socialProof": "محبوب لدى +2,700 سيدة",
+    "headline": "ارتدي التأهيل.",
+    "sub": "أزياء نسائية تحريرية مبنية على طقوس الارتداء بعد التعافي. لوحة عاج ووردي، عارض ثلاثي الأبعاد، تجربة واقع معزز.",
+    "ctaPrimary": "تسوّقي الإصدار",
+    "starsAria": "تقييم 4.9 من 5"
+  },
+  "floatingNav": {
+    "brand": "ريهاب",
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "lookbook": "لوك بوك",
+    "about": "من نحن",
+    "cart": "السلة",
+    "signIn": "تسجيل الدخول",
+    "primary": "التنقل الرئيسي",
+    "homeAria": "الصفحة الرئيسية لمتجر ريهاب"
+  },
+  "trustedBy": {
+    "title": "بثقة من المجلات الرائدة",
+    "logosAlt": "ظهرت في"
+  },
+  "collections": {
+    "title": "المجموعات",
+    "lede": "أربع زوايا لخزانة الملابس. اضغطي على أي بطاقة لدخول الفصل.",
+    "eyebrow1": "وصل حديثاً",
+    "title1": "Tailoring ناعم",
+    "body1": "صوف، كتان، ونيّة. الزيّ الجديد لخزانة التعافي.",
+    "eyebrow2": "أتيليه",
+    "title2": "تريكو ريهاب",
+    "body2": "منسوج يدوياً، بقصّات كاملة. كنزات تعافي بهيكل.",
+    "eyebrow3": "إصدار محدود",
+    "title3": "عاج ووردي",
+    "body3": "كبسولة بألواننا المميّزة. 48 قطعة مرقّمة.",
+    "eyebrow4": "تحريري",
+    "title4": "لوك بوك 01",
+    "body4": "صورت في مراكش. ظلال طويلة، أطراف طويلة."
+  },
+  "journal": {
+    "title": "مجلة ريهاب",
+    "lede": "ملاحظات عن القماش، الكود، وإعادة البناء بهدوء.",
+    "p1Eyebrow": "مجلة",
+    "p1Title": "عن التعافي، الطقس، وارتداء الملابس",
+    "p1Body": "مقال قصير عن ضوء الصباح كأداة تنسيق أصلية.",
+    "p1Date": "مايو 2026",
+    "p2Eyebrow": "خلف الإبرة",
+    "p2Title": "داخل الأتيليه — عاج ووردي",
+    "p2Body": "من المزاج إلى المانيكان. 11 أسبوعاً لبناء الكبسولة.",
+    "p2Date": "أبريل 2026",
+    "p3Eyebrow": "استوديو",
+    "p3Title": "نمط ثلاثي الأبعاد: كيف نشحَن قطعة بتنسيقين",
+    "p3Body": "لماذا نتعامل مع GLB كصفحة لوك بوك جديدة.",
+    "p3Date": "مارس 2026",
+    "read": "اقرأي"
+  },
+  "shop": {
+    "title": "المتجر",
+    "lede": "الكتالوج الكامل بفلاتر متعددة يصل في المرحلة 1.",
+    "comingSoon": "قريباً",
+    "cardBody": "تصفحي مجموعة {category} القادمة — عارض ثلاثي الأبعاد وقياسات شاملة."
+  },
+  "cart": {
+    "title": "السلة",
+    "lede": "السلة المستمرة والدفع عبر Stripe تصل في المرحلة 2.",
+    "emptyTitle": "خزانتك بانتظارك.",
+    "emptyBody": "أضيفي قطعة من المتجر لبدء سلتك. كل قطعة تأتي مع معاينة ثلاثية الأبعاد يمكنكِ تدويرها وتغيير لونها وتجربتها بالواقع المعزز.",
+    "remove": "إزالة",
+    "subtotal": "المجموع",
+    "checkout": "إتمام الشراء",
+    "continueShopping": "مواصلة التسوق",
+    "itemCount": "{count, plural, one {# قطعة} other {# قطع}}"
+  },
+  "about": {
+    "title": "من نحن",
+    "headline": "نُلبس التعافي.",
+    "p1": "ريهاب ستور علامة ملابس نسائية تحريرية بُنيت حول طقوس اللباس في الجانب الآخر من أمر ما. قصاتنا مدروسة، ولوحتنا عاج ووردي، وكل قطعة تأتي مع ملف ثلاثي الأبعاد يمكنكِ تدويره وتغيير لونه وتجربته قبل أن يصلكِ.",
+    "p2": "المرحلة 0 هي الأساس. المرحلة 1 تفعّل عارض القطع ثلاثي الأبعاد. المرحلة 2 تفتح السلة. المرحلة 3 تضع القطعة على جسمكِ بالواقع المعزز. المرحلة 4 هي الفصل الذي تكتبينه أنتِ."
+  },
+  "lookbook": {
+    "title": "لوك بوك 01",
+    "lede": "صورت في مراكش. ظلال طويلة، أطراف طويلة.",
+    "lookLabel": "لوك"
+  },
+  "notFound": {
+    "title": "404",
+    "headline": "خارج الرف، خارج المسار.",
+    "body": "هذه القطعة في آخر الأتيليه. جرّبي المتجر بدلاً منها.",
+    "backHome": "→ الرجوع إلى الرئيسية"
+  },
+  "product": {
+    "addToCart": "أضيفي إلى السلة",
+    "selectSize": "اختاري المقاس",
+    "selectColor": "اختاري اللون",
+    "materials": "الخامات",
+    "care": "العناية",
+    "fitNotes": "دلالات المقاس",
+    "details": "التفاصيل",
+    "inStock": "متوفر",
+    "outOfStock": "غير متوفر",
+    "view3d": "شاهدي ثلاثي الأبعاد",
+    "colors": "ألوان",
+    "sizes": "مقاسات",
+    "backToShop": "العودة إلى المتجر",
+    "loading3d": "جارٍ تحميل العرض ثلاثي الأبعاد…",
+    "arTryOn": "تجربة بالواقع المعزز"
+  },
+  "admin": {
+    "toast": {
+      "saveSuccess": "تم الحفظ بنجاح",
+      "deleteSuccess": "تم الحذف بنجاح",
+      "createSuccess": "تم الإنشاء بنجاح",
+      "updateSuccess": "تم التحديث بنجاح",
+      "saved": "تم الحفظ",
+      "deleted": "تم الحذف",
+      "updated": "تم التحديث",
+      "created": "تم الإنشاء",
+      "sent": "تم الإرسال"
+    },
+    "error": {
+      "title": "حدث خطأ ما",
+      "body": "نأسف، واجهنا مشكلة غير متوقعة. يمكنك إعادة المحاولة أو العودة إلى لوحة التحكم.",
+      "retry": "إعادة المحاولة",
+      "backToDashboard": "العودة إلى لوحة التحكم",
+      "digest": "رمز الخطأ: {id}"
+    },
+    "layout": {
+      "title": "لوحة تحكم ريهاب ستور",
+      "description": "إدارة المنتجات، الطلبات، المخزون، والمستخدمين",
+      "sidebarLabel": "التنقل الرئيسي للإدارة",
+      "userUnknown": "مشرف"
+    },
+    "nav": {
+      "dashboard": "لوحة التحكم",
+      "products": "المنتجات",
+      "inventory": "المخزون",
+      "pricing": "التسعير والخصومات",
+      "orders": "الطلبات",
+      "collections": "المجموعات",
+      "customers": "العملاء",
+      "settings": "الإعدادات",
+      "adminUsers": "المستخدمين الإداريين"
+    },
+    "pageTitle": {
+      "dashboard": "لوحة التحكم",
+      "products": "المنتجات",
+      "inventory": "المخزون",
+      "pricing": "التسعير والخصومات",
+      "orders": "الطلبات",
+      "collections": "المجموعات",
+      "customers": "العملاء",
+      "settings": "الإعدادات",
+      "users": "المستخدمين الإداريين"
+    },
+    "login": {
+      "title": "تسجيل الدخول للإدارة",
+      "subtitle": "أدخل بياناتك للوصول إلى لوحة التحكم",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "admin@rehab.store",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "••••••••",
+      "submit": "دخول",
+      "loading": "جارٍ تسجيل الدخول…",
+      "error": "بيانات الدخول غير صحيحة",
+      "forgotPassword": "نسيت كلمة المرور؟"
+    },
+    "logout": "تسجيل الخروج",
+    "userUnknown": "مشرف",
+    "dashboard": {
+      "title": "لوحة التحكم",
+      "subtitle": "نظرة عامة على متجرك",
+      "revenueMTD": "الإيرادات هذا الشهر",
+      "ordersThisMonth": "الطلبات هذا الشهر",
+      "activeProducts": "المنتجات النشطة",
+      "lowStockAlerts": "تنبيهات المخزون المنخفض",
+      "recentOrders": "أحدث الطلبات",
+      "viewAllOrders": "عرض جميع الطلبات",
+      "lowStockPanel": "تنبيهات المخزون",
+      "manageInventory": "إدارة المخزون",
+      "noLowStock": "مستويات المخزون سليمة",
+      "columns": {
+        "orderId": "رقم الطلب",
+        "customer": "العميل",
+        "items": "العناصر",
+        "total": "الإجمالي",
+        "date": "التاريخ",
+        "status": "الحالة"
+      },
+      "status": {
+        "pending": "قيد الانتظار",
+        "processing": "قيد المعالجة",
+        "shipped": "تم الشحن",
+        "delivered": "تم التسليم",
+        "cancelled": "ملغي",
+        "completed": "مكتمل",
+        "refunded": "مسترد"
+      },
+      "loading": "جارٍ التحميل…",
+      "error": "فشل في تحميل البيانات",
+      "currency": "درهم إماراتي"
+    },
+    "products": {
+      "title": "المنتجات",
+      "newProduct": "منتج جديد",
+      "editProduct": "تعديل المنتج: {title}",
+      "deleteProduct": "حذف: {title}",
+      "colorSwatchLabel": "لون {color}",
+      "deleteConfirm": "هل أنت متأكد من حذف \"{title}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "search": "بحث",
+      "searchPlaceholder": "ابحث عن منتج…",
+      "filterByCategory": "تصفية حسب الفئة",
+      "allCategories": "الكل",
+      "types": {
+        "tops": "قمصان",
+        "bottoms": "بناطيل",
+        "outerwear": "ملابس خارجية",
+        "accessories": "إكسسوارات"
+      },
+      "emptyTitle": "لا توجد منتجات",
+      "emptyText": "ابدأ بإضافة منتجك الأول",
+      "noResults": "لا توجد نتائج",
+      "noResultsText": "جرّب تعديل البحث أو التصفية",
+      "columns": {
+        "color": "اللون",
+        "name": "الاسم",
+        "collection": "المجموعة",
+        "price": "السعر",
+        "stock": "المخزون",
+        "status": "الحالة",
+        "actions": "إجراءات"
+      },
+      "status": {
+        "published": "منشور",
+        "draft": "مسودة"
+      },
+      "form": {
+        "titleEn": "الاسم بالإنجليزية",
+        "titleAr": "الاسم بالعربية",
+        "subtitle": "العنوان الفرعي",
+        "description": "الوصف",
+        "type": "النوع",
+        "collection": "المجموعة",
+        "status": "الحالة",
+        "price": "السعر الأساسي",
+        "compareAt": "السعر قبل الخصم",
+        "variants": "الأنواع",
+        "addVariant": "إضافة نوع",
+        "removeVariant": "حذف النوع",
+        "colorName": "اسم اللون",
+        "colorHex": "كود اللون",
+        "size": "المقاس",
+        "stock": "الكمية",
+        "images": "الصور",
+        "save": "حفظ",
+        "saving": "جارٍ الحفظ…",
+        "cancel": "إلغاء"
+      },
+      "imageUploader": {
+        "dropzone": "اسحب الصور هنا أو اضغط للاختيار",
+        "hint": "JPEG / PNG / WebP، حتى {size} ميجابايت، {count} متبقية",
+        "saved": "محفوظ",
+        "uploading": "جارٍ الرفع…",
+        "remove": "حذف الصورة",
+        "invalidType": "نوع الملف غير مدعوم (JPEG / PNG / WebP فقط)",
+        "tooLarge": "حجم الملف يتجاوز {size} ميجابايت",
+        "tooMany": "الحد الأقصى {count} صور",
+        "uploadFailed": "فشل رفع الصور"
+      },
+      "sections": {
+        "basicInfo": "المعلومات الأساسية",
+        "organization": "التصنيف",
+        "pricing": "التسعير"
+      },
+      "errors": {
+        "required": "يرجى ملء جميع الحقول المطلوبة",
+        "loadFailed": "فشل في تحميل المنتجات",
+        "saveFailed": "فشل في حفظ المنتج",
+        "deleteFailed": "فشل في حذف المنتج"
+      }
+    },
+    "inventory": {
+      "title": "المخزون",
+      "totalSkus": "إجمالي وحدات التخزين",
+      "lowStock": "مخزون منخفض",
+      "outOfStock": "نفد من المخزون",
+      "alertBanner": {
+        "title": "تنبيهات المخزون المنخفض"
+      },
+      "restock": "إعادة تخزين",
+      "columns": {
+        "product": "المنتج",
+        "variant": "النوع",
+        "sku": "رمز المنتج",
+        "stocked": "المخزون",
+        "reserved": "محجوز",
+        "available": "متاح",
+        "level": "المستوى",
+        "reorderAt": "إعادة الطلب عند",
+        "actions": "إجراءات"
+      },
+      "actions": {
+        "adjust": "تعديل",
+        "setReorder": "تعيين حد الطلب"
+      },
+      "adjust": {
+        "title": "تعديل المخزون",
+        "modeSet": "تعيين قيمة مطلقة",
+        "modeAdjust": "تعديل بـ",
+        "preview": "الكمية الجديدة ستكون:",
+        "confirm": "تأكيد",
+        "cancel": "إلغاء",
+        "saving": "جارٍ الحفظ…",
+        "success": "تم تحديث المخزون",
+        "error": "فشل في تعديل المخزون",
+        "errorNoItem": "لا يوجد عنصر مخزون مرتبط بهذا النوع"
+      },
+      "reorder": {
+        "title": "تعيين حد إعادة الطلب",
+        "label": "إعادة الطلب عند انخفاض المخزون إلى:",
+        "confirm": "حفظ",
+        "cancel": "إلغاء",
+        "saving": "جارٍ الحفظ…",
+        "success": "تم تحديث الحد",
+        "errorInvalid": "يرجى إدخال رقم صحيح"
+      },
+      "filters": {
+        "label": "تصفية",
+        "all": "الكل",
+        "lowStock": "مخزون منخفض",
+        "outOfStock": "نفد من المخزون"
+      },
+      "search": "ابحث عن منتج أو نوع…",
+      "empty": {
+        "title": "لا توجد نتائج",
+        "text": "جرّب تعديل البحث أو التصفية"
+      },
+      "errors": {
+        "loadFailed": "فشل في تحميل المخزون"
+      }
+    },
+    "pricing": {
+      "title": "التسعير والخصومات",
+      "empty": "لا توجد منتجات",
+      "tabs": {
+        "prices": "الأسعار",
+        "discounts": "الخصومات"
+      },
+      "prices": {
+        "search": "ابحث عن منتج…",
+        "currency": "العملة",
+        "saveAll": "حفظ كل التغييرات",
+        "saving": "جارٍ الحفظ…",
+        "saved": "تم الحفظ",
+        "dirtyCount": "{count} تغيير غير محفوظ",
+        "convertedNote": "يتم عرض الأسعار بعملات أخرى بسعر صرف تقريبي للحفظ الفعلي تُستخدم الدرهم الإماراتي.",
+        "columns": {
+          "product": "المنتج",
+          "basePrice": "السعر الأساسي",
+          "salePrice": "سعر التخفيض",
+          "onSale": "تخفيض"
+        }
+      },
+      "discounts": {
+        "title": "الخصومات",
+        "new": "خصم جديد",
+        "empty": "لا توجد خصومات",
+        "created": "تم إنشاء الخصم",
+        "delete": "حذف",
+        "deleteConfirm": "هل أنت متأكد من حذف هذا الخصم؟",
+        "enable": "تفعيل",
+        "disable": "إيقاف",
+        "creating": "جارٍ الإنشاء…",
+        "columns": {
+          "code": "الرمز",
+          "type": "النوع",
+          "value": "القيمة",
+          "minCart": "الحد الأدنى للطلب",
+          "usage": "الاستخدام",
+          "expiry": "انتهاء الصلاحية",
+          "status": "الحالة",
+          "actions": "إجراءات"
+        },
+        "types": {
+          "percentage": "نسبة مئوية",
+          "fixed": "مبلغ ثابت",
+          "free_shipping": "شحن مجاني"
+        },
+        "status": {
+          "active": "نشط",
+          "disabled": "متوقف",
+          "expired": "منتهي"
+        },
+        "form": {
+          "code": "الرمز",
+          "type": "النوع",
+          "value": "القيمة",
+          "minCart": "الحد الأدنى للطلب (AED)",
+          "usageLimit": "حد الاستخدام (فارغ = غير محدود)",
+          "startsAt": "تاريخ البدء",
+          "endsAt": "تاريخ الانتهاء (اختياري)",
+          "active": "نشط",
+          "submit": "إنشاء الخصم"
+        },
+        "errors": {
+          "codeRequired": "يرجى إدخال رمز الخصم"
+        }
+      },
+      "errors": {
+        "saveFailed": "فشل في حفظ الأسعار",
+        "createFailed": "فشل في إنشاء الخصم",
+        "deleteFailed": "فشل في حذف الخصم"
+      }
+    },
+    "collections": {
+      "title": "المجموعات",
+      "newCollection": "مجموعة جديدة",
+      "editCollection": "تعديل: {title}",
+      "deleteCollection": "حذف: {title}",
+      "deleteConfirm": "هل أنت متأكد من حذف \"{title}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "search": "بحث",
+      "searchPlaceholder": "ابحث عن مجموعة…",
+      "emptyTitle": "لا توجد مجموعات",
+      "emptyText": "ابدأ بإضافة مجموعتك الأولى",
+      "noResults": "لا توجد نتائج",
+      "noResultsText": "جرّب تعديل البحث",
+      "columns": {
+        "name": "الاسم",
+        "handle": "المعرّف",
+        "products": "المنتجات",
+        "created": "تاريخ الإنشاء",
+        "actions": "إجراءات"
+      },
+      "form": {
+        "titleEn": "الاسم بالإنجليزية",
+        "titleAr": "الاسم بالعربية",
+        "descriptionAr": "الوصف بالعربية",
+        "handle": "المعرّف (URL)",
+        "handleHint": "يُولّد تلقائياً من الاسم بالإنجليزية إذا تُرك فارغاً",
+        "save": "حفظ",
+        "saving": "جارٍ الحفظ…",
+        "cancel": "إلغاء"
+      },
+      "sections": {
+        "basicInfo": "المعلومات الأساسية",
+        "localization": "الترجمة"
+      },
+      "errors": {
+        "titleRequired": "يرجى إدخال اسم المجموعة",
+        "loadFailed": "فشل في تحميل المجموعات",
+        "saveFailed": "فشل في حفظ المجموعة",
+        "deleteFailed": "فشل في حذف المجموعة"
+      }
+    },
+    "orders": {
+      "title": "الطلبات",
+      "empty": "لا توجد طلبات",
+      "tabs": {
+        "all": "الكل",
+        "pending": "قيد الانتظار",
+        "processing": "قيد المعالجة",
+        "shipped": "تم الشحن",
+        "delivered": "تم التسليم",
+        "cancelled": "ملغي"
+      },
+      "columns": {
+        "id": "رقم الطلب",
+        "customer": "العميل",
+        "items": "العناصر",
+        "total": "الإجمالي",
+        "date": "التاريخ",
+        "payment": "الدفع",
+        "fulfillment": "الشحن",
+        "action": "إجراء"
+      },
+      "paymentStatus": {
+        "awaiting": "بانتظار الدفع",
+        "captured": "مدفوع",
+        "refunded": "مسترد",
+        "canceled": "ملغي",
+        "not_paid": "غير مدفوع",
+        "partially_refunded": "مسترد جزئيًا"
+      },
+      "fulfillmentStatus": {
+        "not_fulfilled": "لم يتم",
+        "fulfilled": "منجز",
+        "shipped": "تم الشحن",
+        "delivered": "تم التسليم",
+        "canceled": "ملغي",
+        "partially_fulfilled": "منجز جزئيًا",
+        "partially_shipped": "شحن جزئي",
+        "partially_returned": "مرتجع جزئي",
+        "returned": "مرتجع",
+        "requires_action": "يحتاج إجراء"
+      },
+      "actions": {
+        "view": "عرض",
+        "markProcessing": "تحديد كقيد المعالجة",
+        "createFulfillment": "إنشاء شحنة",
+        "markShipped": "تحديد كتم الشحن",
+        "markDelivered": "تحديد كتم التسليم",
+        "issueRefund": "إصدار استرداد"
+      },
+      "detail": {
+        "back": "العودة إلى الطلبات",
+        "orderTitle": "طلب #{id}",
+        "lineItems": "العناصر",
+        "fulfillment": "الشحن",
+        "payment": "الدفع",
+        "customer": "العميل",
+        "shippingAddress": "عنوان الشحن",
+        "notes": "ملاحظات",
+        "subtotal": "المجموع الفرعي",
+        "shipping": "الشحن",
+        "discount": "الخصم",
+        "tax": "الضريبة",
+        "total": "الإجمالي",
+        "tracking": "رقم التتبع",
+        "carrier": "شركة الشحن",
+        "capturedAt": "تم الدفع في {date}",
+        "created": "تم الإنشاء",
+        "processing": "قيد المعالجة",
+        "shipped": "تم الشحن",
+        "delivered": "تم التسليم",
+        "cancelled": "ملغي",
+        "complete": "الطلب مكتمل"
+      },
+      "refund": {
+        "title": "إصدار استرداد",
+        "context": "الحد الأقصى للاسترداد: {total} درهم",
+        "selectItems": "اختر العناصر للاسترداد",
+        "manualAmount": "مبلغ يدوي",
+        "amount": "المبلغ",
+        "reason": "السبب",
+        "reasons": {
+          "discount": "خصم",
+          "return": "إرجاع",
+          "fraud": "احتيال",
+          "other": "أخرى"
+        },
+        "confirm": "إصدار الاسترداد",
+        "cancel": "إلغاء",
+        "processing": "جارٍ المعالجة…",
+        "amountRequired": "يرجى إدخال مبلغ الاسترداد",
+        "exceedsTotal": "المبلغ يتجاوز إجمالي الطلب"
+      },
+      "ship": {
+        "title": "تأكيد الشحن",
+        "tracking": "رقم التتبع",
+        "carrier": "شركة الشحن",
+        "confirm": "تأكيد الشحن",
+        "cancel": "إلغاء",
+        "processing": "جارٍ المعالجة…",
+        "trackingRequired": "رقم التتبع مطلوب"
+      },
+      "note": {
+        "placeholder": "أضف ملاحظة…",
+        "add": "إضافة ملاحظة",
+        "empty": "يرجى كتابة الملاحظة"
+      },
+      "pagination": {
+        "showing": "عرض {from}–{to} من {total} طلب",
+        "previous": "السابق",
+        "next": "التالي"
+      },
+      "errors": {
+        "loadFailed": "فشل في تحميل الطلبات"
+      }
+    },
+    "users": {
+      "title": "المستخدمين الإداريين",
+      "subtitle": "إدارة حسابات المشرفين والصلاحيات",
+      "inviteUser": "دعوة مستخدم",
+      "search": "بحث",
+      "searchPlaceholder": "ابحث عن مستخدم…",
+      "changeRole": "تغيير الصلاحية",
+      "you": "أنت",
+      "emptyTitle": "لا يوجد مستخدمين",
+      "noResults": "لا توجد نتائج",
+      "deleteUser": "حذف: {email}",
+      "deleteConfirm": "هل أنت متأكد من حذف \"{email}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+      "columns": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "role": "الصلاحية",
+        "joined": "تاريخ الانضمام"
+      },
+      "roles": {
+        "admin": "مدير",
+        "member": "عضو",
+        "developer": "مطوّر"
+      },
+      "invite": {
+        "title": "دعوة مستخدم جديد",
+        "close": "إغلاق",
+        "email": "البريد الإلكتروني",
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "role": "الصلاحية",
+        "roles": {
+          "admin": {
+            "title": "مدير",
+            "desc": "صلاحيات كاملة على كل أقسام الإدارة"
+          },
+          "member": {
+            "title": "عضو",
+            "desc": "وصول للقراءة فقط إلى الطلبات والمنتجات"
+          },
+          "developer": {
+            "title": "مطوّر",
+            "desc": "وصول إلى الإعدادات والبيانات الحساسة"
+          }
+        },
+        "send": "إرسال الدعوة",
+        "sending": "جارٍ الإرسال…",
+        "cancel": "إلغاء"
+      },
+      "errors": {
+        "loadFailed": "فشل في تحميل المستخدمين",
+        "cantChangeOwnRole": "لا يمكنك تغيير صلاحيتك",
+        "cantDeleteSelf": "لا يمكنك حذف حسابك"
+      }
+    },
+    "settings": {
+      "title": "الإعدادات",
+      "subtitle": "معلومات المتجر والتفضيلات العامة",
+      "savedAt": "تم الحفظ في {time}",
+      "sections": {
+        "identity": "هوية المتجر",
+        "defaults": "الإعدادات الافتراضية",
+        "social": "وسائل التواصل",
+        "danger": "منطقة الخطر"
+      },
+      "form": {
+        "storeName": "اسم المتجر",
+        "storeEmail": "البريد الإلكتروني للمتجر",
+        "storePhone": "هاتف المتجر",
+        "defaultCurrency": "العملة الافتراضية",
+        "defaultCurrencyHint": "تستخدم للعرض في الواجهة. الحفظ الفعلي في Medusa بالدرهم الإماراتي.",
+        "defaultLocale": "اللغة الافتراضية",
+        "defaultLocaleHint": "قراءة فقط — غيّرها في إعدادات next-intl",
+        "freeShipping": "حد الشحن المجاني",
+        "freeShippingHint": "يظهر للعملاء في السلة. الحفظ الفعلي في Medusa.",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "save": "حفظ التغييرات",
+        "saving": "جارٍ الحفظ…"
+      },
+      "danger": {
+        "note": "إعدادات النظام الحساسة (المناطق، العملات، طرق الدفع) تُدار في لوحة تحكم Medusa.",
+        "openMedusaAdmin": "فتح لوحة Medusa"
+      }
+    },
+    "customers": {
+      "title": "العملاء",
+      "totalCount": "{count} عميل",
+      "search": "بحث",
+      "searchPlaceholder": "ابحث عن عميل…",
+      "emptyTitle": "لا يوجد عملاء",
+      "emptyText": "سيظهر العملاء هنا بعد أول طلب",
+      "noResults": "لا توجد نتائج",
+      "noResultsText": "جرّب تعديل البحث",
+      "columns": {
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "orders": "الطلبات",
+        "totalSpent": "إجمالي الإنفاق",
+        "joined": "تاريخ الانضمام"
+      },
+      "detail": {
+        "back": "العودة إلى العملاء",
+        "title": "عميل: {name}",
+        "contact": "معلومات الاتصال",
+        "shippingAddresses": "عناوين الشحن",
+        "billingAddress": "عنوان الفواتير",
+        "orderHistory": "سجل الطلبات",
+        "noOrders": "لا توجد طلبات بعد",
+        "orderId": "رقم الطلب",
+        "orderDate": "التاريخ",
+        "orderStatus": "الحالة",
+        "orderTotal": "الإجمالي",
+        "viewOrder": "عرض",
+        "joinedOn": "منذ {date}"
+      },
+      "errors": {
+        "loadFailed": "فشل في تحميل العملاء"
+      }
+    }
+  }
+}

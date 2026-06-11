@@ -1,0 +1,738 @@
+{
+  "common": {
+    "appName": "Rehab Store",
+    "tagline": "Style is the second rehab",
+    "loading": "Loading…",
+    "comingSoon": "Coming soon",
+    "close": "Close",
+    "back": "Back",
+    "viewMore": "View more"
+  },
+  "meta": {
+    "title": "Rehab Store — Fashion is the foundation. We bring the touch.",
+    "description": "Rehab Store — متجر ملابس نسائية ثلاثي الأبعاد. تصميم تحريري، أزياء للتعافي.",
+    "ogSiteName": "Rehab Store"
+  },
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "new": "New",
+    "dresses": "Dresses",
+    "tops": "Tops",
+    "bottoms": "Bottoms",
+    "knitwear": "Knitwear",
+    "outerwear": "Outerwear",
+    "accessories": "Accessories",
+    "lookbook": "Lookbook",
+    "about": "About",
+    "cart": "Cart",
+    "homeAria": "Rehab Store home",
+    "primary": "Primary"
+  },
+  "theme": {
+    "label": "Color theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "locale": {
+    "label": "Language",
+    "switch": "Language"
+  },
+  "currency": {
+    "label": "Currency",
+    "aed": "AED",
+    "sar": "SAR",
+    "kwd": "KWD",
+    "egp": "EGP",
+    "usd": "USD"
+  },
+  "home": {
+    "socialProof": "Loved by 2,700+ women",
+    "headline": "Wear the recovery.",
+    "sub": "Editorial womenswear built around the rituals of getting dressed on the other side of something. Bone-and-rose palette, 3D garment viewer, AR try-on.",
+    "ctaPrimary": "Shop the drop",
+    "starsAria": "Rated 4.9 out of 5"
+  },
+  "floatingNav": {
+    "brand": "rehab.",
+    "home": "Home",
+    "shop": "Shop",
+    "lookbook": "Lookbook",
+    "about": "About",
+    "cart": "Cart",
+    "signIn": "Sign in",
+    "primary": "Primary",
+    "homeAria": "Rehab Store home"
+  },
+  "trustedBy": {
+    "title": "Trusted by editorial press",
+    "logosAlt": "Featured in"
+  },
+  "collections": {
+    "title": "Collections",
+    "lede": "Four corners of the wardrobe. Click any tile to enter the chapter.",
+    "eyebrow1": "New in",
+    "title1": "Soft Tailoring",
+    "body1": "Wool, linen, and intent. The new uniform for the recovered wardrobe.",
+    "eyebrow2": "Atelier",
+    "title2": "Rehab Knitwear",
+    "body2": "Hand-loomed, fully fashioned. Recovery sweaters with structure.",
+    "eyebrow3": "Limited",
+    "title3": "Bone & Rose",
+    "body3": "A capsule in our signature neutrals. 48 pieces, numbered.",
+    "eyebrow4": "Editorial",
+    "title4": "Lookbook 01",
+    "body4": "Photographed in Marrakech. Long shadows, long hemlines."
+  },
+  "journal": {
+    "title": "The Rehab Journal",
+    "lede": "Notes on cloth, code, and the slow rebuild.",
+    "p1Eyebrow": "Journal",
+    "p1Title": "On recovery, ritual, and getting dressed",
+    "p1Body": "A short essay on why morning light is the original styling tool.",
+    "p1Date": "May 2026",
+    "p2Eyebrow": "Behind the seam",
+    "p2Title": "Inside the Atelier — Bone & Rose",
+    "p2Body": "From moodboard to mannequin. The 11-week build of our capsule.",
+    "p2Date": "Apr 2026",
+    "p3Eyebrow": "Studio",
+    "p3Title": "The 3D pattern: how we ship a garment in two file formats",
+    "p3Body": "Why we treat GLB as the new lookbook page.",
+    "p3Date": "Mar 2026",
+    "read": "Read"
+  },
+  "shop": {
+    "title": "Shop",
+    "lede": "Faceted catalog lands in Phase 1.",
+    "comingSoon": "Coming soon",
+    "cardBody": "Browse the upcoming {category} collection — 3D garment viewer and size-inclusive fit data."
+  },
+  "cart": {
+    "title": "Cart",
+    "lede": "Persistent cart + Stripe checkout arrive in Phase 2.",
+    "emptyTitle": "Your wardrobe is waiting.",
+    "emptyBody": "Add a piece from the shop to start your cart. Every item ships with a 3D preview you can rotate, recolor, and try on in AR.",
+    "remove": "Remove",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "continueShopping": "Continue shopping",
+    "itemCount": "{count, plural, one {# item} other {# items}}"
+  },
+  "about": {
+    "title": "About",
+    "headline": "We dress the recovery.",
+    "p1": "Rehab Store is an editorial womenswear label built around the rituals of getting dressed on the other side of something. Our cuts are deliberate, our palette is bone-and-rose, and every garment ships with a 3D file you can spin, recolor, and try on before it lands at your door.",
+    "p2": "Phase 0 is a foundation. Phase 1 lights up the 3D garment viewer. Phase 2 opens the cart. Phase 3 puts it on your body in AR. Phase 4 is the part you write."
+  },
+  "lookbook": {
+    "title": "Lookbook 01",
+    "lede": "Photographed in Marrakech. Long shadows, long hemlines.",
+    "lookLabel": "LOOK"
+  },
+  "notFound": {
+    "title": "404",
+    "headline": "Off the rack, off the route.",
+    "body": "This piece is in the back of the atelier. Try the shop instead.",
+    "backHome": "← Back to home"
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "selectSize": "Select size",
+    "selectColor": "Select color",
+    "materials": "Materials",
+    "care": "Care",
+    "fitNotes": "Fit notes",
+    "details": "Details",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "view3d": "View in 3D",
+    "colors": "colors",
+    "sizes": "sizes",
+    "backToShop": "Back to shop",
+    "loading3d": "Loading 3D preview…",
+    "arTryOn": "Try in AR"
+  },
+  "admin": {
+    "toast": {
+      "saveSuccess": "Saved successfully",
+      "deleteSuccess": "Deleted successfully",
+      "createSuccess": "Created successfully",
+      "updateSuccess": "Updated successfully",
+      "saved": "Saved",
+      "deleted": "Deleted",
+      "updated": "Updated",
+      "created": "Created",
+      "sent": "Sent"
+    },
+    "error": {
+      "title": "Something went wrong",
+      "body": "We're sorry, an unexpected error occurred. You can retry or return to the dashboard.",
+      "retry": "Retry",
+      "backToDashboard": "Back to dashboard",
+      "digest": "Error ID: {id}"
+    },
+    "layout": {
+      "title": "Rehab Store Admin",
+      "description": "Manage products, orders, inventory, and users",
+      "sidebarLabel": "Admin navigation",
+      "userUnknown": "Admin"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "inventory": "Inventory",
+      "pricing": "Pricing & Discounts",
+      "orders": "Orders",
+      "collections": "Collections",
+      "customers": "Customers",
+      "settings": "Settings",
+      "adminUsers": "Admin Users"
+    },
+    "pageTitle": {
+      "dashboard": "Dashboard",
+      "products": "Products",
+      "inventory": "Inventory",
+      "pricing": "Pricing & Discounts",
+      "orders": "Orders",
+      "collections": "Collections",
+      "customers": "Customers",
+      "settings": "Settings",
+      "users": "Admin Users"
+    },
+    "login": {
+      "title": "Admin Sign In",
+      "subtitle": "Enter your credentials to access the dashboard",
+      "emailLabel": "Email",
+      "emailPlaceholder": "admin@rehab.store",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Sign in",
+      "loading": "Signing in…",
+      "error": "Invalid credentials",
+      "forgotPassword": "Forgot password?"
+    },
+    "logout": "Sign out",
+    "userUnknown": "Admin",
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Overview of your store",
+      "revenueMTD": "Revenue MTD",
+      "ordersThisMonth": "Orders this month",
+      "activeProducts": "Active products",
+      "lowStockAlerts": "Low stock alerts",
+      "recentOrders": "Recent orders",
+      "viewAllOrders": "View all orders",
+      "lowStockPanel": "Low stock alerts",
+      "manageInventory": "Manage inventory",
+      "noLowStock": "All stock levels healthy",
+      "columns": {
+        "orderId": "Order ID",
+        "customer": "Customer",
+        "items": "Items",
+        "total": "Total",
+        "date": "Date",
+        "status": "Status"
+      },
+      "status": {
+        "pending": "Pending",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled",
+        "completed": "Completed",
+        "refunded": "Refunded"
+      },
+      "loading": "Loading…",
+      "error": "Failed to load data",
+      "currency": "AED"
+    },
+    "products": {
+      "title": "Products",
+      "newProduct": "New product",
+      "editProduct": "Edit: {title}",
+      "deleteProduct": "Delete: {title}",
+      "colorSwatchLabel": "{color} swatch",
+      "deleteConfirm": "Are you sure you want to delete \"{title}\"? This cannot be undone.",
+      "search": "Search",
+      "searchPlaceholder": "Search products…",
+      "filterByCategory": "Filter by category",
+      "allCategories": "All",
+      "types": {
+        "tops": "Tops",
+        "bottoms": "Bottoms",
+        "outerwear": "Outerwear",
+        "accessories": "Accessories"
+      },
+      "emptyTitle": "No products yet",
+      "emptyText": "Start by adding your first product",
+      "noResults": "No results",
+      "noResultsText": "Try adjusting your search or filter",
+      "columns": {
+        "color": "Color",
+        "name": "Name",
+        "collection": "Collection",
+        "price": "Price",
+        "stock": "Stock",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "status": {
+        "published": "Published",
+        "draft": "Draft"
+      },
+      "form": {
+        "titleEn": "Title (English)",
+        "titleAr": "Title (Arabic)",
+        "subtitle": "Subtitle",
+        "description": "Description",
+        "type": "Type",
+        "collection": "Collection",
+        "status": "Status",
+        "price": "Base price",
+        "compareAt": "Compare at price",
+        "variants": "Variants",
+        "addVariant": "Add variant",
+        "removeVariant": "Remove variant",
+        "colorName": "Color name",
+        "colorHex": "Color hex",
+        "size": "Size",
+        "stock": "Stock",
+        "images": "Images",
+        "save": "Save",
+        "saving": "Saving…",
+        "cancel": "Cancel"
+      },
+      "imageUploader": {
+        "dropzone": "Drop images here or click to browse",
+        "hint": "JPEG / PNG / WebP, up to {size}MB, {count} remaining",
+        "saved": "Saved",
+        "uploading": "Uploading…",
+        "remove": "Remove image",
+        "invalidType": "Unsupported file type (JPEG / PNG / WebP only)",
+        "tooLarge": "File exceeds {size}MB limit",
+        "tooMany": "Maximum {count} images",
+        "uploadFailed": "Failed to upload images"
+      },
+      "sections": {
+        "basicInfo": "Basic information",
+        "organization": "Organization",
+        "pricing": "Pricing"
+      },
+      "errors": {
+        "required": "Please fill in all required fields",
+        "loadFailed": "Failed to load products",
+        "saveFailed": "Failed to save product",
+        "deleteFailed": "Failed to delete product"
+      }
+    },
+    "inventory": {
+      "title": "Inventory",
+      "totalSkus": "Total SKUs",
+      "lowStock": "Low stock",
+      "outOfStock": "Out of stock",
+      "alertBanner": {
+        "title": "Low stock alerts"
+      },
+      "restock": "Restock",
+      "columns": {
+        "product": "Product",
+        "variant": "Variant",
+        "sku": "SKU",
+        "stocked": "Stocked",
+        "reserved": "Reserved",
+        "available": "Available",
+        "level": "Level",
+        "reorderAt": "Reorder at",
+        "actions": "Actions"
+      },
+      "actions": {
+        "adjust": "Adjust",
+        "setReorder": "Set reorder"
+      },
+      "adjust": {
+        "title": "Adjust stock",
+        "modeSet": "Set absolute",
+        "modeAdjust": "Adjust by",
+        "preview": "New quantity will be:",
+        "confirm": "Confirm",
+        "cancel": "Cancel",
+        "saving": "Saving…",
+        "success": "Stock updated",
+        "error": "Failed to adjust stock",
+        "errorNoItem": "No inventory item linked to this variant"
+      },
+      "reorder": {
+        "title": "Set reorder threshold",
+        "label": "Reorder when stock falls below:",
+        "confirm": "Save",
+        "cancel": "Cancel",
+        "saving": "Saving…",
+        "success": "Threshold updated",
+        "errorInvalid": "Please enter a valid number"
+      },
+      "filters": {
+        "label": "Filter",
+        "all": "All",
+        "lowStock": "Low stock",
+        "outOfStock": "Out of stock"
+      },
+      "search": "Search product or variant…",
+      "empty": {
+        "title": "No results",
+        "text": "Try adjusting your search or filter"
+      },
+      "errors": {
+        "loadFailed": "Failed to load inventory"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Discounts",
+      "empty": "No products",
+      "tabs": {
+        "prices": "Prices",
+        "discounts": "Discounts"
+      },
+      "prices": {
+        "search": "Search products…",
+        "currency": "Currency",
+        "saveAll": "Save all changes",
+        "saving": "Saving…",
+        "saved": "Saved",
+        "dirtyCount": "{count} unsaved change",
+        "convertedNote": "Prices in other currencies use approximate FX rates. Saving always writes AED to Medusa.",
+        "columns": {
+          "product": "Product",
+          "basePrice": "Base price",
+          "salePrice": "Sale price",
+          "onSale": "On sale"
+        }
+      },
+      "discounts": {
+        "title": "Discounts",
+        "new": "New discount",
+        "empty": "No discounts",
+        "created": "Discount created",
+        "delete": "Delete",
+        "deleteConfirm": "Are you sure you want to delete this discount?",
+        "enable": "Enable",
+        "disable": "Disable",
+        "creating": "Creating…",
+        "columns": {
+          "code": "Code",
+          "type": "Type",
+          "value": "Value",
+          "minCart": "Min cart",
+          "usage": "Usage",
+          "expiry": "Expiry",
+          "status": "Status",
+          "actions": "Actions"
+        },
+        "types": {
+          "percentage": "Percentage",
+          "fixed": "Fixed amount",
+          "free_shipping": "Free shipping"
+        },
+        "status": {
+          "active": "Active",
+          "disabled": "Disabled",
+          "expired": "Expired"
+        },
+        "form": {
+          "code": "Code",
+          "type": "Type",
+          "value": "Value",
+          "minCart": "Minimum cart (AED)",
+          "usageLimit": "Usage limit (blank = unlimited)",
+          "startsAt": "Starts at",
+          "endsAt": "Ends at (optional)",
+          "active": "Active",
+          "submit": "Create discount"
+        },
+        "errors": {
+          "codeRequired": "Discount code is required"
+        }
+      },
+      "errors": {
+        "saveFailed": "Failed to save prices",
+        "createFailed": "Failed to create discount",
+        "deleteFailed": "Failed to delete discount"
+      }
+    },
+    "collections": {
+      "title": "Collections",
+      "newCollection": "New collection",
+      "editCollection": "Edit: {title}",
+      "deleteCollection": "Delete: {title}",
+      "deleteConfirm": "Are you sure you want to delete \"{title}\"? This cannot be undone.",
+      "search": "Search",
+      "searchPlaceholder": "Search collections…",
+      "emptyTitle": "No collections yet",
+      "emptyText": "Start by adding your first collection",
+      "noResults": "No results",
+      "noResultsText": "Try adjusting your search",
+      "columns": {
+        "name": "Name",
+        "handle": "Handle",
+        "products": "Products",
+        "created": "Created",
+        "actions": "Actions"
+      },
+      "form": {
+        "titleEn": "Title (English)",
+        "titleAr": "Title (Arabic)",
+        "descriptionAr": "Description (Arabic)",
+        "handle": "Handle (URL)",
+        "handleHint": "Auto-generated from English title if left blank",
+        "save": "Save",
+        "saving": "Saving…",
+        "cancel": "Cancel"
+      },
+      "sections": {
+        "basicInfo": "Basic information",
+        "localization": "Localization"
+      },
+      "errors": {
+        "titleRequired": "Please enter a collection title",
+        "loadFailed": "Failed to load collections",
+        "saveFailed": "Failed to save collection",
+        "deleteFailed": "Failed to delete collection"
+      }
+    },
+    "orders": {
+      "title": "Orders",
+      "empty": "No orders",
+      "tabs": {
+        "all": "All",
+        "pending": "Pending",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled"
+      },
+      "columns": {
+        "id": "Order ID",
+        "customer": "Customer",
+        "items": "Items",
+        "total": "Total",
+        "date": "Date",
+        "payment": "Payment",
+        "fulfillment": "Fulfillment",
+        "action": "Action"
+      },
+      "paymentStatus": {
+        "awaiting": "Awaiting",
+        "captured": "Captured",
+        "refunded": "Refunded",
+        "canceled": "Canceled",
+        "not_paid": "Not paid",
+        "partially_refunded": "Partially refunded"
+      },
+      "fulfillmentStatus": {
+        "not_fulfilled": "Not fulfilled",
+        "fulfilled": "Fulfilled",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "canceled": "Canceled",
+        "partially_fulfilled": "Partially fulfilled",
+        "partially_shipped": "Partially shipped",
+        "partially_returned": "Partially returned",
+        "returned": "Returned",
+        "requires_action": "Requires action"
+      },
+      "actions": {
+        "view": "View",
+        "markProcessing": "Mark as Processing",
+        "createFulfillment": "Create Fulfillment",
+        "markShipped": "Mark as Shipped",
+        "markDelivered": "Mark as Delivered",
+        "issueRefund": "Issue Refund"
+      },
+      "detail": {
+        "back": "Back to orders",
+        "orderTitle": "Order #{id}",
+        "lineItems": "Line items",
+        "fulfillment": "Fulfillment",
+        "payment": "Payment",
+        "customer": "Customer",
+        "shippingAddress": "Shipping address",
+        "notes": "Notes",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "discount": "Discount",
+        "tax": "Tax",
+        "total": "Total",
+        "tracking": "Tracking number",
+        "carrier": "Carrier",
+        "capturedAt": "Captured at {date}",
+        "created": "Created",
+        "processing": "Processing",
+        "shipped": "Shipped",
+        "delivered": "Delivered",
+        "cancelled": "Cancelled",
+        "complete": "Order complete"
+      },
+      "refund": {
+        "title": "Issue refund",
+        "context": "Maximum refundable: AED {total}",
+        "selectItems": "Select items to refund",
+        "manualAmount": "Manual amount",
+        "amount": "Amount",
+        "reason": "Reason",
+        "reasons": {
+          "discount": "Discount",
+          "return": "Return",
+          "fraud": "Fraud",
+          "other": "Other"
+        },
+        "confirm": "Issue refund",
+        "cancel": "Cancel",
+        "processing": "Processing…",
+        "amountRequired": "Refund amount is required",
+        "exceedsTotal": "Amount exceeds order total"
+      },
+      "ship": {
+        "title": "Confirm shipment",
+        "tracking": "Tracking number",
+        "carrier": "Carrier",
+        "confirm": "Confirm shipment",
+        "cancel": "Cancel",
+        "processing": "Processing…",
+        "trackingRequired": "Tracking number is required"
+      },
+      "note": {
+        "placeholder": "Add a note…",
+        "add": "Add note",
+        "empty": "Please write a note"
+      },
+      "pagination": {
+        "showing": "Showing {from}–{to} of {total} orders",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "errors": {
+        "loadFailed": "Failed to load orders"
+      }
+    },
+    "users": {
+      "title": "Admin users",
+      "subtitle": "Manage admin accounts and permissions",
+      "inviteUser": "Invite user",
+      "search": "Search",
+      "searchPlaceholder": "Search users…",
+      "changeRole": "Change role",
+      "you": "You",
+      "emptyTitle": "No users yet",
+      "noResults": "No results",
+      "deleteUser": "Delete: {email}",
+      "deleteConfirm": "Are you sure you want to delete \"{email}\"? This cannot be undone.",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "joined": "Joined"
+      },
+      "roles": {
+        "admin": "Admin",
+        "member": "Member",
+        "developer": "Developer"
+      },
+      "invite": {
+        "title": "Invite a new user",
+        "close": "Close",
+        "email": "Email",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "role": "Role",
+        "roles": {
+          "admin": {
+            "title": "Admin",
+            "desc": "Full access to all admin sections"
+          },
+          "member": {
+            "title": "Member",
+            "desc": "Read-only access to orders and products"
+          },
+          "developer": {
+            "title": "Developer",
+            "desc": "Access to settings and sensitive data"
+          }
+        },
+        "send": "Send invite",
+        "sending": "Sending…",
+        "cancel": "Cancel"
+      },
+      "errors": {
+        "loadFailed": "Failed to load users",
+        "cantChangeOwnRole": "You cannot change your own role",
+        "cantDeleteSelf": "You cannot delete your own account"
+      }
+    },
+    "settings": {
+      "title": "Settings",
+      "subtitle": "Store identity and global preferences",
+      "savedAt": "Saved at {time}",
+      "sections": {
+        "identity": "Store identity",
+        "defaults": "Defaults",
+        "social": "Social",
+        "danger": "Danger zone"
+      },
+      "form": {
+        "storeName": "Store name",
+        "storeEmail": "Store email",
+        "storePhone": "Store phone",
+        "defaultCurrency": "Default currency",
+        "defaultCurrencyHint": "Used for display. Medusa always stores AED.",
+        "defaultLocale": "Default locale",
+        "defaultLocaleHint": "Read-only — change in next-intl config",
+        "freeShipping": "Free shipping threshold",
+        "freeShippingHint": "Shown to customers in cart. Medusa owns the real rule.",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "save": "Save changes",
+        "saving": "Saving…"
+      },
+      "danger": {
+        "note": "Critical system settings (regions, currencies, payment providers) live in the Medusa admin.",
+        "openMedusaAdmin": "Open Medusa admin"
+      }
+    },
+    "customers": {
+      "title": "Customers",
+      "totalCount": "{count} customers",
+      "search": "Search",
+      "searchPlaceholder": "Search customers…",
+      "emptyTitle": "No customers yet",
+      "emptyText": "Customers will appear here after their first order",
+      "noResults": "No results",
+      "noResultsText": "Try adjusting your search",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "orders": "Orders",
+        "totalSpent": "Total spent",
+        "joined": "Joined"
+      },
+      "detail": {
+        "back": "Back to customers",
+        "title": "Customer: {name}",
+        "contact": "Contact",
+        "shippingAddresses": "Shipping addresses",
+        "billingAddress": "Billing address",
+        "orderHistory": "Order history",
+        "noOrders": "No orders yet",
+        "orderId": "Order ID",
+        "orderDate": "Date",
+        "orderStatus": "Status",
+        "orderTotal": "Total",
+        "viewOrder": "View",
+        "joinedOn": "Joined on {date}"
+      },
+      "errors": {
+        "loadFailed": "Failed to load customers"
+      }
+    }
+  }
+}

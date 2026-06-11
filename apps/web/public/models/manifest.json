@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-06-04T13:53:20.028Z",
+  "assets": [
+    {
+      "id": "rehab-dress-01",
+      "slug": "soft-tailoring-dress",
+      "title": "Soft Tailoring Dress",
+      "category": "dress",
+      "source": "khronos",
+      "license": "CC0",
+      "sourceUrl": "https://github.com/KhronosGroup/glTF-Sample-Models",
+      "glbPath": "/models/soft-tailoring-dress.glb",
+      "sizeKb": 0,
+      "colorZones": [
+        "fabric_primary",
+        "trim"
+      ]
+    },
+    {
+      "id": "rehab-knit-01",
+      "slug": "rehab-sweater",
+      "title": "Rehab Sweater",
+      "category": "knitwear",
+      "source": "sketchfab",
+      "license": "CC0",
+      "sourceUrl": "https://sketchfab.com/",
+      "glbPath": "/models/rehab-sweater.glb",
+      "sizeKb": 0,
+      "colorZones": [
+        "body",
+        "cuff",
+        "collar"
+      ]
+    }
+  ]
+}

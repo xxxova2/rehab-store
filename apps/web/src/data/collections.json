@@ -1,0 +1,42 @@
+[
+  {
+    "id": "soft-tailoring",
+    "slug": "soft-tailoring",
+    "title": { "en": "Soft Tailoring", "ar": "Tailoring ناعم" },
+    "description": {
+      "en": "Wool, linen, and intent. The new uniform for the recovered wardrobe.",
+      "ar": "صوف، كتان، ونيّة. الزيّ الجديد لخزانة التعافي."
+    },
+    "productIds": ["rehab-dress-01", "rehab-trouser-01", "rehab-shirt-01", "rehab-tee-01"]
+  },
+  {
+    "id": "rehab-knitwear",
+    "slug": "rehab-knitwear",
+    "title": { "en": "Rehab Knitwear", "ar": "تريكو ريهاب" },
+    "description": {
+      "en": "Hand-loomed, fully fashioned. Recovery sweaters with structure.",
+      "ar": "منسوج يدوياً، بقصّات كاملة. كنزات تعافي بهيكل."
+    },
+    "productIds": ["rehab-knit-01"]
+  },
+  {
+    "id": "bone-rose",
+    "slug": "bone-rose",
+    "title": { "en": "Bone & Rose", "ar": "عاج ووردي" },
+    "description": {
+      "en": "A capsule in our signature neutrals. 48 pieces, numbered.",
+      "ar": "كبسولة بألواننا المميّزة. 48 قطعة مرقّمة."
+    },
+    "productIds": ["rehab-blouse-01"]
+  },
+  {
+    "id": "lookbook-01",
+    "slug": "lookbook-01",
+    "title": { "en": "Lookbook 01", "ar": "لوك بوك 01" },
+    "description": {
+      "en": "Photographed in Marrakech. Long shadows, long hemlines.",
+      "ar": "صورت في مراكش. ظلال طويلة، أطراف طويلة."
+    },
+    "productIds": ["rehab-coat-01", "rehab-slip-01"]
+  }
+]

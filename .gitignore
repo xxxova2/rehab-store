@@ -1,0 +1,60 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# builds
+dist/
+build/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+
+# testing
+coverage/
+test-results/
+playwright-report/
+playwright/.cache/
+blob-report/
+
+# env
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+
+# medusa
+apps/medusa/.medusa/
+apps/medusa/uploads/
+
+# next
+apps/web/.next/
+apps/web/out/
+apps/web/public/uploads/
+
+# 3D assets cache
+.cache/
+apps/web/public/models/.cache/
+
+# reference repos (cloned into tools/)
+tools/
+
+# dev artifacts (screenshots, exported pages)
+screenshot-*.png
+ar_*.html
+en_*.html

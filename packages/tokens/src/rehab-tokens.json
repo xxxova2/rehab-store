@@ -1,0 +1,124 @@
+{
+  "description": "Rehab Store — Material 3 design tokens. Generated from material-theme-builder export. Source of truth for the design system.",
+  "schemes": {
+    "light": {
+      "primary": "#5A4A3A",
+      "onPrimary": "#FFFFFF",
+      "primaryContainer": "#F2D9BC",
+      "onPrimaryContainer": "#1F1207",
+      "secondary": "#A87C56",
+      "onSecondary": "#FFFFFF",
+      "secondaryContainer": "#F2D9BC",
+      "onSecondaryContainer": "#2A1707",
+      "tertiary": "#D67A8A",
+      "onTertiary": "#FFFFFF",
+      "tertiaryContainer": "#FFD9DF",
+      "onTertiaryContainer": "#3F0717",
+      "error": "#B3261E",
+      "onError": "#FFFFFF",
+      "errorContainer": "#F9DEDC",
+      "onErrorContainer": "#410E0B",
+      "background": "#FAF7F2",
+      "onBackground": "#1A1A1A",
+      "surface": "#FAF7F2",
+      "onSurface": "#1A1A1A",
+      "surfaceVariant": "#E8E2D9",
+      "onSurfaceVariant": "#4A4640",
+      "outline": "#7C7770",
+      "outlineVariant": "#CCC6BC",
+      "inverseSurface": "#2F2F2F",
+      "inverseOnSurface": "#F1EDE6",
+      "inversePrimary": "#E5BFA0",
+      "surfaceTint": "#5A4A3A",
+      "scrim": "#000000"
+    },
+    "dark": {
+      "primary": "#E5BFA0",
+      "onPrimary": "#3A2A1A",
+      "primaryContainer": "#52391F",
+      "onPrimaryContainer": "#F2D9BC",
+      "secondary": "#D9B289",
+      "onSecondary": "#4A2F12",
+      "secondaryContainer": "#6A4A2A",
+      "onSecondaryContainer": "#F2D9BC",
+      "tertiary": "#FFB1BD",
+      "onTertiary": "#5F1127",
+      "tertiaryContainer": "#7B2A3F",
+      "onTertiaryContainer": "#FFD9DF",
+      "error": "#F2B8B5",
+      "onError": "#601410",
+      "errorContainer": "#8C1D18",
+      "onErrorContainer": "#F9DEDC",
+      "background": "#1A1A1A",
+      "onBackground": "#F1EDE6",
+      "surface": "#1A1A1A",
+      "onSurface": "#F1EDE6",
+      "surfaceVariant": "#4A4640",
+      "onSurfaceVariant": "#CCC6BC",
+      "outline": "#969088",
+      "outlineVariant": "#4A4640",
+      "inverseSurface": "#F1EDE6",
+      "inverseOnSurface": "#2F2F2F",
+      "inversePrimary": "#5A4A3A",
+      "surfaceTint": "#E5BFA0",
+      "scrim": "#000000"
+    }
+  },
+  "surfaces": {
+    "_comment": "M3 surface tones — fixed light/dark dim/surface levels.",
+    "light": {
+      "surfaceDim": "#E8E2D9",
+      "surfaceBright": "#FAF7F2",
+      "surfaceContainerLowest": "#FFFFFF",
+      "surfaceContainerLow": "#F4EFE7",
+      "surfaceContainer": "#EEE8DF",
+      "surfaceContainerHigh": "#E8E2D9",
+      "surfaceContainerHighest": "#E2DCD3"
+    },
+    "dark": {
+      "surfaceDim": "#141414",
+      "surfaceBright": "#3A3A3A",
+      "surfaceContainerLowest": "#0F0F0F",
+      "surfaceContainerLow": "#1A1A1A",
+      "surfaceContainer": "#1F1F1F",
+      "surfaceContainerHigh": "#2A2A2A",
+      "surfaceContainerHighest": "#353535"
+    }
+  },
+  "fixedAccents": {
+    "_comment": "Fixed accents that remain consistent across light and dark schemes.",
+    "primaryFixed": "#F2D9BC",
+    "primaryFixedDim": "#E5BFA0",
+    "onPrimaryFixed": "#2A1707",
+    "onPrimaryFixedVariant": "#52391F",
+    "secondaryFixed": "#F2D9BC",
+    "secondaryFixedDim": "#D9B289",
+    "onSecondaryFixed": "#2A1707",
+    "onSecondaryFixedVariant": "#6A4A2A",
+    "tertiaryFixed": "#FFD9DF",
+    "tertiaryFixedDim": "#FFB1BD",
+    "onTertiaryFixed": "#3F0717",
+    "onTertiaryFixedVariant": "#7B2A3F"
+  },
+  "brand": {
+    "_comment": "Rehab brand seed colors that generated the schemes above via material-theme-builder.",
+    "primarySeed": "#1A1A1A",
+    "secondarySeed": "#C8A27A",
+    "tertiarySeed": "#D67A8A",
+    "neutralSeed": "#FAF7F2"
+  },
+  "typography": {
+    "display": {
+      "family": "Playfair Display, Georgia, serif",
+      "weights": [400, 500, 600, 700]
+    },
+    "body": {
+      "family": "Inter, system-ui, -apple-system, Segoe UI, sans-serif",
+      "weights": [300, 400, 500, 600, 700]
+    },
+    "mono": {
+      "family": "JetBrains Mono, ui-monospace, monospace",
+      "weights": [400, 500]
+    }
+  }
+}

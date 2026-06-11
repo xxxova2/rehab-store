@@ -1,0 +1,28 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--md-sys-color-surface-container) 0%,
+    var(--md-sys-color-surface-container-high) 50%,
+    var(--md-sys-color-surface-container) 100%
+  );
+  background-size: 200% 100%;
+  animation: pulse 1.4s ease-in-out infinite;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+    opacity: 0.7;
+  }
+}

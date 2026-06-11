@@ -1,0 +1,33 @@
+{
+  "name": "@rehab/medusa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rehab Store headless commerce backend (Medusa)",
+  "scripts": {
+    "dev": "medusa develop",
+    "build": "medusa build",
+    "start": "medusa start",
+    "seed": "medusa exec ./src/scripts/seed.ts",
+    "user": "medusa user --email admin@rehab.store --password supersecret",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@medusajs/admin": "^7.1.18",
+    "@medusajs/cli": "^2.15.5",
+    "@medusajs/framework": "^2.15.5",
+    "@medusajs/medusa": "^2.15.5",
+    "awilix": "^8.0.1",
+    "better-sqlite3": "^12.10.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^24.0.0",
+    "@types/pg": "^8.11.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

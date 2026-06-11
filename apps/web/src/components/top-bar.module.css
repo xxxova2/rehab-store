@@ -1,0 +1,130 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--md-sys-color-surface);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 64px;
+  padding-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  color: var(--md-sys-color-on-surface);
+}
+
+.brandMark {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  font-style: italic;
+  font-size: 1.1rem;
+  align-self: center;
+}
+
+.brandWord {
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.brandTag {
+  font-size: 0.7rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--md-sys-color-on-surface-variant);
+  align-self: center;
+}
+
+.nav {
+  display: none;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 900px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-size: 0.92rem;
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  padding-block: 0.4rem;
+  transition: color var(--dur-short) var(--ease-standard);
+}
+
+.navLink:hover {
+  color: var(--md-sys-color-on-surface);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 2px;
+  background: var(--md-sys-color-primary);
+  transform: scaleX(0);
+  transform-origin: start center;
+  transition: transform var(--dur-medium) var(--ease-standard);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: end;
+}
+
+.cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: filter var(--dur-short) var(--ease-standard);
+}
+
+.cart:hover {
+  filter: brightness(0.95);
+}
+
+.cartLabel {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .cartLabel {
+    display: inline;
+  }
+}

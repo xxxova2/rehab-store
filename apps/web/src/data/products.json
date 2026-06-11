@@ -1,0 +1,445 @@
+[
+  {
+    "id": "rehab-dress-01",
+    "slug": "soft-tailoring-dress",
+    "title": { "en": "Soft Tailoring Dress", "ar": "فستان tailoring ناعم" },
+    "subtitle": {
+      "en": "Wool-linen, drop-waist",
+      "ar": "صوف وكتان، خصر منخفض"
+    },
+    "description": {
+      "en": "A drop-waist dress cut from a 60/40 wool-linen blend. Side pockets, horn buttons, French seams. Designed to be lived in for years, not seasons.",
+      "ar": "فستان بخصر منخفض مقصوص من مزيج صوف-كتان 60/40. جيوب جانبية، أزرار قرن، وخياطة فرنسية. مصمم ليعيش سنوات لا مواسم."
+    },
+    "category": "dresses",
+    "collection": "soft-tailoring",
+    "basePriceCents": 129000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/soft-tailoring-dress.jpg",
+        "alt": { "en": "Soft Tailoring Dress — Bone", "ar": "فستان tailoring ناعم — عاجي" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "bone",
+        "name": { "en": "Bone", "ar": "عاجي" },
+        "hex": "#F2D9BC",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "ink",
+        "name": { "en": "Ink", "ar": "حبري" },
+        "hex": "#1A1A1A",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "60% Italian wool, 40% Belgian linen", "ar": "60% صوف إيطالي، 40% كتان بلجيكي" },
+      { "en": "Lined in cotton voile", "ar": "بطانة من فويل القطن" }
+    ],
+    "care": [
+      { "en": "Dry clean only", "ar": "تنظيف جاف فقط" },
+      { "en": "Steam, don't iron", "ar": "بخار، لا كوي" }
+    ],
+    "fitNotes": {
+      "en": "True to size. Model wears S, is 178cm.",
+      "ar": "مقاس دقيق. العارضة ترتدي S، طولها 178 سم."
+    },
+    "model3d": {
+      "glbUrl": "/models/soft-tailoring-dress.glb",
+      "splineScene": "https://prod.spline.design/3dtextbluecopy-wIdeovYFdCsblCqQym7Mar3a/scene.splinecode",
+      "anchors": ["chest", "waist", "hem"],
+      "colorZones": ["fabric_primary", "trim"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-01T00:00:00Z"
+  },
+  {
+    "id": "rehab-knit-01",
+    "slug": "rehab-crew-sweater",
+    "title": { "en": "Rehab Crew Sweater", "ar": "كنزة ريحاب" },
+    "subtitle": { "en": "Hand-loomed merino", "ar": "ميرينو منسوج يدوياً" },
+    "description": {
+      "en": "A relaxed-fit crewneck in 100% Italian merino. Hand-loomed in Tuscany, fully fashioned at the seams for a clean drape.",
+      "ar": "كنزة بياقة مستديرة وقصّة مريحة من 100% ميرينو إيطالي. منسوجة يدوياً في توسكانا، بقصّات كاملة عند الخياطة لانسياب نظيف."
+    },
+    "category": "knitwear",
+    "collection": "rehab-knitwear",
+    "basePriceCents": 69000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/rehab-crew-sweater.jpg",
+        "alt": { "en": "Rehab Crew Sweater — Sand", "ar": "كنزة ريهاب — رملي" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "sand",
+        "name": { "en": "Sand", "ar": "رملي" },
+        "hex": "#C8A27A",
+        "materialTarget": "body"
+      },
+      {
+        "id": "cream",
+        "name": { "en": "Cream", "ar": "كريمي" },
+        "hex": "#F2D9BC",
+        "materialTarget": "body"
+      }
+    ],
+    "materials": [
+      { "en": "100% Italian merino wool", "ar": "100% صوف ميرينو إيطالي" }
+    ],
+    "care": [
+      { "en": "Hand wash cold, lay flat to dry", "ar": "غسل يدوي بماء بارد، تجفيف مسطّح" }
+    ],
+    "fitNotes": {
+      "en": "Relaxed fit. Size down for a closer cut.",
+      "ar": "قصة مريحة. اختاري مقاساً أصغر لقصّة أقرب للجسم."
+    },
+    "model3d": {
+      "glbUrl": "/models/rehab-crew-sweater.glb",
+      "colorZones": ["body", "cuff", "collar"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-05T00:00:00Z"
+  },
+  {
+    "id": "rehab-trouser-01",
+    "slug": "bone-wide-leg-trouser",
+    "title": { "en": "Bone Wide-Leg Trouser", "ar": "بنطلون واسع عاجي" },
+    "subtitle": { "en": "Heavy crepe, high rise", "ar": "كريب ثقيل، خصر مرتفع" },
+    "description": {
+      "en": "A high-rise wide-leg trouser in heavy Italian crepe. Hidden side zip, single welt back pocket, unfinished hem for custom length.",
+      "ar": "بنطلون واسع بخصر مرتفع من كريب إيطالي ثقيل. سحّاب جانبي مخفي، جيب خلفي واحد، طرف سفلي غير مكتمل لتعديل الطول."
+    },
+    "category": "bottoms",
+    "collection": "soft-tailoring",
+    "basePriceCents": 79000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/bone-wide-leg-trouser.jpg",
+        "alt": { "en": "Bone Wide-Leg Trouser", "ar": "بنطلون واسع عاجي" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["24", "25", "26", "27", "28", "29", "30"],
+    "colors": [
+      {
+        "id": "bone",
+        "name": { "en": "Bone", "ar": "عاجي" },
+        "hex": "#F2D9BC",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "ink",
+        "name": { "en": "Ink", "ar": "حبري" },
+        "hex": "#1A1A1A",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "92% viscose, 8% elastane", "ar": "92% فيسكوز، 8% إيلاستين" }
+    ],
+    "care": [
+      { "en": "Dry clean recommended", "ar": "يُنصح بالتنظيف الجاف" }
+    ],
+    "fitNotes": {
+      "en": "High rise. Hem to your preferred length — we leave 5cm extra.",
+      "ar": "خصر مرتفع. اضبطي الطول حسب رغبتك — نترك 5 سم إضافية."
+    },
+    "model3d": {
+      "glbUrl": "/models/bone-wide-leg-trouser.glb",
+      "colorZones": ["fabric_primary"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-08T00:00:00Z"
+  },
+  {
+    "id": "rehab-blouse-01",
+    "slug": "rose-silk-blouse",
+    "title": { "en": "Rose Silk Blouse", "ar": "بلوزة حرير وردية" },
+    "subtitle": { "en": "Mulberry silk, mother-of-pearl", "ar": "حرير التوت، صدف اللؤلؤ" },
+    "description": {
+      "en": "A relaxed silk blouse in dusty rehab rose. French seams, mother-of-pearl buttons, a small self-fabric belt at the back.",
+      "ar": "بلوزة حرير مريحة بلون ريهاب وردي مغبر. خياطة فرنسية، أزرار صدف، وحزام صغير من نفس القماش في الخلف."
+    },
+    "category": "tops",
+    "collection": "bone-rose",
+    "basePriceCents": 59000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/rose-silk-blouse.jpg",
+        "alt": { "en": "Rose Silk Blouse", "ar": "بلوزة حرير وردية" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "rose",
+        "name": { "en": "Rehab Rose", "ar": "وردي ريهاب" },
+        "hex": "#D67A8A",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "100% mulberry silk, 19 momme", "ar": "100% حرير توت، 19 موم" }
+    ],
+    "care": [
+      { "en": "Hand wash cold with silk detergent", "ar": "غسل يدوي بماء بارد ومنظّف الحرير" }
+    ],
+    "fitNotes": {
+      "en": "Slightly roomy through the body. True to size.",
+      "ar": "اتساع خفيف على الجسم. مقاس دقيق."
+    },
+    "model3d": {
+      "glbUrl": "/models/rose-silk-blouse.glb",
+      "colorZones": ["fabric_primary"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-12T00:00:00Z"
+  },
+  {
+    "id": "rehab-shirt-01",
+    "slug": "atelier-linen-shirt",
+    "title": { "en": "Atelier Linen Shirt", "ar": "قميص كتان الأتيليه" },
+    "subtitle": { "en": "Heavy Belgian linen", "ar": "كتان بلجيكي ثقيل" },
+    "description": {
+      "en": "A boxy, oversized linen shirt with dropped shoulders and a curved hem. Belgian linen that softens with every wash.",
+      "ar": "قميص كتان بصندوقية فضفاضة، أكتاف منخفضة، وطرف سفلي مقوّس. كتان بلجيكي يلين مع كل غسلة."
+    },
+    "category": "tops",
+    "collection": "soft-tailoring",
+    "basePriceCents": 49000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/atelier-linen-shirt.jpg",
+        "alt": { "en": "Atelier Linen Shirt", "ar": "قميص كتان الأتيليه" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "natural",
+        "name": { "en": "Natural", "ar": "طبيعي" },
+        "hex": "#E8DCC4",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "white",
+        "name": { "en": "White", "ar": "أبيض" },
+        "hex": "#FFFFFF",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "100% Belgian linen, 240 gsm", "ar": "100% كتان بلجيكي، 240 غرام/م²" }
+    ],
+    "care": [
+      { "en": "Machine wash cold, hang dry", "ar": "غسالة بماء بارد، تجفيف معلّق" }
+    ],
+    "fitNotes": {
+      "en": "Oversized. Size down for a closer fit.",
+      "ar": "فضفاض. اختاري مقاساً أصغر لقصّة أقرب."
+    },
+    "model3d": {
+      "glbUrl": "/models/atelier-linen-shirt.glb",
+      "colorZones": ["fabric_primary"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-15T00:00:00Z"
+  },
+  {
+    "id": "rehab-coat-01",
+    "slug": "lookbook-bone-coat",
+    "title": {
+      "en": "Lookbook 01 — Bone Coat",
+      "ar": "معطف عاجي – لوك بوك 01"
+    },
+    "subtitle": {
+      "en": "Double-faced wool, raw edge",
+      "ar": "صوف وجهين، حافة خام"
+    },
+    "description": {
+      "en": "A double-faced wool coat in undyed bone. Cut wide through the body, with a raw edge at the lapel and hem. The hero of Lookbook 01.",
+      "ar": "معطف من صوف وجهين بلون عاجي غير مصبوغ. قصّة واسعة على الجسم، حافة خام على الياقة والطرف السفلي. البطل في لوك بوك 01."
+    },
+    "category": "outerwear",
+    "collection": "lookbook-01",
+    "basePriceCents": 189000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/lookbook-bone-coat.jpg",
+        "alt": { "en": "Bone Coat — Lookbook 01", "ar": "معطف عاجي – لوك بوك 01" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "bone",
+        "name": { "en": "Bone", "ar": "عاجي" },
+        "hex": "#F2D9BC",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "100% Italian double-faced wool", "ar": "100% صوف وجهين إيطالي" }
+    ],
+    "care": [
+      { "en": "Specialist dry clean only", "ar": "تنظيف جاف متخصص فقط" }
+    ],
+    "fitNotes": {
+      "en": "Oversized. Take your usual size.",
+      "ar": "قصة فضفاضة. اختاري مقاسكِ المعتاد."
+    },
+    "model3d": {
+      "glbUrl": "/models/lookbook-bone-coat.glb",
+      "anchors": ["chest", "shoulder", "hem"],
+      "colorZones": ["fabric_primary"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-20T00:00:00Z"
+  },
+  {
+    "id": "rehab-slip-01",
+    "slug": "editorial-slip-dress",
+    "title": { "en": "Editorial Slip Dress", "ar": "فستان سليب تحريري" },
+    "subtitle": { "en": "Bias-cut silk satin", "ar": "حرير ساتان بقصّة مائلة" },
+    "description": {
+      "en": "A bias-cut slip dress in heavy silk satin. Cowl neckline, adjustable spaghetti straps, French seams. Cut to skim, not cling.",
+      "ar": "فستان سليب بقصّة مائلة من حرير ساتان ثقيل. ياقة معقوفة، حمّالات رفيعة قابلة للتعديل، خياطة فرنسية. قصّة تلامس لا تلتصق."
+    },
+    "category": "dresses",
+    "collection": "lookbook-01",
+    "basePriceCents": 89000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/editorial-slip-dress.jpg",
+        "alt": { "en": "Editorial Slip Dress — Rose", "ar": "فستان سليب تحريري — وردي" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      {
+        "id": "rose",
+        "name": { "en": "Rehab Rose", "ar": "وردي ريهاب" },
+        "hex": "#D67A8A",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "ink",
+        "name": { "en": "Ink", "ar": "حبري" },
+        "hex": "#1A1A1A",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "100% silk satin, 22 momme", "ar": "100% حرير ساتان، 22 موم" }
+    ],
+    "care": [
+      { "en": "Hand wash cold or dry clean", "ar": "غسل يدوي بماء بارد أو تنظيف جاف" }
+    ],
+    "fitNotes": {
+      "en": "Bias cut. Order your usual size.",
+      "ar": "قصّة مائلة. اطلبي مقاسكِ المعتاد."
+    },
+    "model3d": {
+      "glbUrl": "/models/editorial-slip-dress.glb",
+      "colorZones": ["fabric_primary", "strap"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-22T00:00:00Z"
+  },
+  {
+    "id": "rehab-tee-01",
+    "slug": "foundation-tee-off-white",
+    "title": {
+      "en": "Foundation Tee – Off-White",
+      "ar": "تيشيرت الأساس – أوف وايت"
+    },
+    "subtitle": { "en": "Heavyweight Pima cotton", "ar": "قطن بيما ثقيل" },
+    "description": {
+      "en": "The Foundation Tee. Heavyweight Pima cotton, ribbed crewneck, reinforced shoulder tape. The base of every Rehab wardrobe.",
+      "ar": "تيشيرت الأساس. قطن بيما ثقيل، ياقة مضلّعة، شريط كتف مُقوّى. قاعدة كل خزانة ريهاب."
+    },
+    "category": "tops",
+    "collection": "soft-tailoring",
+    "basePriceCents": 29000,
+    "baseCurrency": "AED",
+    "images": [
+      {
+        "url": "/models/foundation-tee-off-white.jpg",
+        "alt": { "en": "Foundation Tee – Off-White", "ar": "تيشيرت الأساس – أوف وايت" },
+        "width": 1200,
+        "height": 1500
+      }
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "colors": [
+      {
+        "id": "off-white",
+        "name": { "en": "Off-White", "ar": "أوف وايت" },
+        "hex": "#FAF7F2",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "ink",
+        "name": { "en": "Ink", "ar": "حبري" },
+        "hex": "#1A1A1A",
+        "materialTarget": "fabric_primary"
+      },
+      {
+        "id": "rose",
+        "name": { "en": "Rehab Rose", "ar": "وردي ريهاب" },
+        "hex": "#D67A8A",
+        "materialTarget": "fabric_primary"
+      }
+    ],
+    "materials": [
+      { "en": "100% Peruvian Pima cotton, 240 gsm", "ar": "100% قطن بيما بيروفي، 240 غرام/م²" }
+    ],
+    "care": [
+      { "en": "Machine wash cold, tumble dry low", "ar": "غسالة بماء بارد، تجفيف بمجفف على حرارة منخفضة" }
+    ],
+    "fitNotes": {
+      "en": "Slim through the body. True to size.",
+      "ar": "قصّة ضيّقة على الجسم. مقاس دقيق."
+    },
+    "model3d": {
+      "glbUrl": "/models/foundation-tee.glb",
+      "colorZones": ["fabric_primary"],
+      "sizeKb": 0
+    },
+    "inStock": true,
+    "createdAt": "2026-05-25T00:00:00Z"
+  }
+]
