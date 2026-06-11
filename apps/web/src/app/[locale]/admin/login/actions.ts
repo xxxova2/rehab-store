@@ -3,36 +3,21 @@
 import { cookies } from 'next/headers';
 
 export async function adminLogin(email: string, password: string) {
-  const base = process.env.MEDUSA_BACKEND_URL || 'http://localhost:9000';
-  const origin = base.startsWith('http') ? base : `http://${base}`;
+  const adminEmail = process.env.ADMIN_EMAIL || 'admin@rehab.store';
+  const adminPassword = process.env.ADMIN_PASSWORD || 'admin123';
 
-  const res = await fetch(`${origin}/auth/user/emailpass`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-    cache: 'no-store',
-  });
-
-  if (!res.ok) {
-    let message = 'Unable to sign in.';
-    try {
-      const data = await res.json();
-      if (typeof data?.message === 'string') message = data.message;
-    } catch {
-      // leave default message if body isn't JSON
-    }
-    throw new Error(message);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  const token = data?.token as string | undefined;
-
-  if (!token) {
-    throw new Error('Missing token from backend');
+  if (email !== adminEmail || password !== adminPassword) {
+    throw new Error('Invalid email or password');
   }
 
   const cookieStore = await cookies();
-  cookieStore.set('rehab_admin_token', String(token), {
+  cookieStore.set('rehab_admin_token', 'authenticated', {
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 7,
+    path: '/',
+    sameSite: 'lax',
+  });
+  cookieStore.set('rehab_admin_email', email, {
     httpOnly: true,
     maxAge: 60 * 60 * 24 * 7,
     path: '/',
