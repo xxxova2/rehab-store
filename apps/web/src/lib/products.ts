@@ -35,8 +35,18 @@ export async function getAllProducts(): Promise<Product[]> {
     .select('data')
     .order('created_at', { ascending: false });
 
-  if (error) throw error;
-  return (data ?? []).map((row: any) => row.data as Product);
+  if (error) {
+    console.error('Supabase query failed, falling back to JSON:', error.message);
+    return jsonProducts();
+  }
+
+  const result = (data ?? []).map((row: any) => row.data as Product);
+  if (result.length === 0) {
+    console.warn('Supabase returned 0 products, falling back to JSON');
+    return jsonProducts();
+  }
+
+  return result;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -87,8 +97,18 @@ export async function getAllCollections(): Promise<Collection[]> {
     .select('data')
     .order('created_at', { ascending: true });
 
-  if (error) throw error;
-  return (data ?? []).map((row: any) => row.data as Collection);
+  if (error) {
+    console.error('Supabase query failed, falling back to JSON:', error.message);
+    return jsonCollections();
+  }
+
+  const result = (data ?? []).map((row: any) => row.data as Collection);
+  if (result.length === 0) {
+    console.warn('Supabase returned 0 collections, falling back to JSON');
+    return jsonCollections();
+  }
+
+  return result;
 }
 
 export async function getCollectionBySlug(slug: string): Promise<Collection | null> {
