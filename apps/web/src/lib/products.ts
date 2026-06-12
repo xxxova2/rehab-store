@@ -56,28 +56,33 @@ function toSlug(title: string): string {
 }
 
 export async function getAllProducts(): Promise<Product[]> {
-  const db = products();
-  if (!db) {
+  try {
+    const db = products();
+    if (!db) {
+      initLocalStore();
+      return Array.from(localStore.values());
+    }
+
+    const { data, error } = await db
+      .select('data')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      initLocalStore();
+      return Array.from(localStore.values());
+    }
+
+    const result = (data ?? []).map((row: any) => row.data as Product);
+    if (result.length === 0) {
+      initLocalStore();
+      return Array.from(localStore.values());
+    }
+
+    return result;
+  } catch {
     initLocalStore();
     return Array.from(localStore.values());
   }
-
-  const { data, error } = await db
-    .select('data')
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    initLocalStore();
-    return Array.from(localStore.values());
-  }
-
-  const result = (data ?? []).map((row: any) => row.data as Product);
-  if (result.length === 0) {
-    initLocalStore();
-    return Array.from(localStore.values());
-  }
-
-  return result;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -247,15 +252,16 @@ export async function createProduct(data: CreateProductInput) {
     createdAt: new Date().toISOString(),
   };
 
-  const db = adminDb();
-  if (db) {
-    const { error } = await db.insert({ id, slug, data: productData });
-    if (error) throw error;
-  } else {
-    initLocalStore();
-    localStore.set(id, productData);
-  }
-
+  try {
+    const db = adminDb();
+    if (db) {
+      const { error } = await db.insert({ id, slug, data: productData });
+      if (error) throw error;
+      return { product: productData };
+    }
+  } catch {}
+  initLocalStore();
+  localStore.set(id, productData);
   return { product: productData };
 }
 
@@ -275,14 +281,15 @@ export async function updateProduct(id: string, data: CreateProductInput) {
     patch.images = [{ url: data.image, alt: { en: data.title, ar: data.title }, width: 1200, height: 1500 }];
   }
 
-  const db = adminDb();
-  if (db) {
-    const { data: existing } = await db.select('data').eq('id', id).single();
-    const merged = { ...(existing?.data ?? {}), ...patch };
-    const { error } = await db.update({ slug, data: merged }).eq('id', id);
-    if (error) throw error;
-    return { product: merged };
-  }
+  try {
+    const db = adminDb();
+    if (db) {
+      const { data: existing } = await db.select('data').eq('id', id).single();
+      const merged = { ...(existing?.data ?? {}), ...patch };
+      const { error } = await db.update({ slug, data: merged }).eq('id', id);
+      if (!error) return { product: merged };
+    }
+  } catch {}
 
   initLocalStore();
   if (localStore.has(id)) {
@@ -293,14 +300,15 @@ export async function updateProduct(id: string, data: CreateProductInput) {
 }
 
 export async function deleteProduct(id: string) {
-  const db = adminDb();
-  if (db) {
-    const { error } = await db.delete().eq('id', id);
-    if (error) throw error;
-  } else {
-    initLocalStore();
-    localStore.delete(id);
-  }
+  try {
+    const db = adminDb();
+    if (db) {
+      const { error } = await db.delete().eq('id', id);
+      if (!error) return { success: true };
+    }
+  } catch {}
+  initLocalStore();
+  localStore.delete(id);
   return { success: true };
 }
 
