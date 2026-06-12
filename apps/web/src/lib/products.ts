@@ -5,36 +5,33 @@ import collectionsJson from '@/data/collections.json';
 
 const localStore = new Map<string, Product>();
 
-function getFs() {
-  try { return { fs: require('fs'), path: require('path') }; } catch { return null; }
-}
+const DATA_FILE = '/tmp/products-data.json';
 
-function loadPersistedProducts(): Product[] | null {
+async function loadPersistedProducts(): Promise<Product[] | null> {
+  if (typeof window !== 'undefined') return null;
   try {
-    const deps = getFs();
-    if (!deps) return null;
-    const DATA_FILE = '/tmp/products-data.json';
-    if (deps.fs.existsSync(DATA_FILE)) {
-      return JSON.parse(deps.fs.readFileSync(DATA_FILE, 'utf-8'));
+    const fs = await import('fs');
+    if (fs.existsSync(DATA_FILE)) {
+      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
     }
   } catch {}
   return null;
 }
 
-function persistProducts(): void {
+async function persistProducts(): Promise<void> {
+  if (typeof window !== 'undefined') return;
   try {
-    const deps = getFs();
-    if (!deps) return;
-    const DATA_FILE = '/tmp/products-data.json';
-    const dir = deps.path.dirname(DATA_FILE);
-    if (!deps.fs.existsSync(dir)) deps.fs.mkdirSync(dir, { recursive: true });
-    deps.fs.writeFileSync(DATA_FILE, JSON.stringify(Array.from(localStore.values()), null, 2));
+    const fs = await import('fs');
+    const path = await import('path');
+    const dir = path.dirname(DATA_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(DATA_FILE, JSON.stringify(Array.from(localStore.values()), null, 2));
   } catch {}
 }
 
-function initLocalStore() {
+async function initLocalStore() {
   if (localStore.size === 0) {
-    const persisted = loadPersistedProducts();
+    const persisted = await loadPersistedProducts();
     const source = persisted ?? (productsJson as Product[]);
     for (const p of source) {
       localStore.set(p.id, p);
@@ -87,7 +84,7 @@ function toSlug(title: string): string {
 export async function getAllProducts(): Promise<Product[]> {
   const db = products();
   if (!db) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values());
   }
 
@@ -96,13 +93,13 @@ export async function getAllProducts(): Promise<Product[]> {
     .order('created_at', { ascending: false });
 
   if (error) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values());
   }
 
   const result = (data ?? []).map((row: any) => row.data as Product);
   if (result.length === 0) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values());
   }
 
@@ -112,7 +109,7 @@ export async function getAllProducts(): Promise<Product[]> {
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   const db = products();
   if (!db) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).find((p) => p.slug === slug) ?? null;
   }
 
@@ -123,7 +120,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 
   if (error) {
     if (error.code === 'PGRST116') return null;
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).find((p) => p.slug === slug) ?? null;
   }
   return (data as any)?.data as Product ?? null;
@@ -132,7 +129,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 export async function getProductById(id: string): Promise<Product | null> {
   const db = products();
   if (!db) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).find((p) => p.id === id) ?? null;
   }
 
@@ -143,7 +140,7 @@ export async function getProductById(id: string): Promise<Product | null> {
 
   if (error) {
     if (error.code === 'PGRST116') return null;
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).find((p) => p.id === id) ?? null;
   }
   return (data as any)?.data as Product ?? null;
@@ -152,7 +149,7 @@ export async function getProductById(id: string): Promise<Product | null> {
 export async function getProductsByCategory(category: Category): Promise<Product[]> {
   const db = products();
   if (!db) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).filter((p) => p.category === category);
   }
 
@@ -167,7 +164,7 @@ export async function getProductsByCategory(category: Category): Promise<Product
 export async function getProductsByCollection(collectionSlug: string): Promise<Product[]> {
   const db = products();
   if (!db) {
-    initLocalStore();
+    await initLocalStore();
     return Array.from(localStore.values()).filter((p) => p.collection === collectionSlug);
   }
 
@@ -281,9 +278,9 @@ export async function createProduct(data: CreateProductInput) {
     const { error } = await db.insert({ id, slug, data: productData });
     if (error) throw error;
   } else {
-    initLocalStore();
+    await initLocalStore();
     localStore.set(id, productData);
-    persistProducts();
+    await persistProducts();
   }
 
   return { product: productData };
@@ -314,12 +311,12 @@ export async function updateProduct(id: string, data: CreateProductInput) {
     return { product: merged };
   }
 
-  initLocalStore();
+  await initLocalStore();
   if (localStore.has(id)) {
     const existing = localStore.get(id)!;
     localStore.set(id, { ...existing, ...patch, slug });
   }
-  persistProducts();
+  await persistProducts();
   return { product: localStore.get(id) };
 }
 
@@ -329,9 +326,9 @@ export async function deleteProduct(id: string) {
     const { error } = await db.delete().eq('id', id);
     if (error) throw error;
   } else {
-    initLocalStore();
+    await initLocalStore();
     localStore.delete(id);
-    persistProducts();
+    await persistProducts();
   }
   return { success: true };
 }
