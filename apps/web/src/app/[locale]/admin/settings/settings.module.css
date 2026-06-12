@@ -1,0 +1,16 @@
+.page {
+  padding: 1.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: #2C2420;
+}
+
+.subtitle {
+  color: #8C7D6D;
+  margin: 0 0 1.5rem;
+  font-size: 0.875rem;
+}

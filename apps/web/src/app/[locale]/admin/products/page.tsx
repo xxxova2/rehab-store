@@ -20,17 +20,47 @@ const empty: Omit<Product, 'id'> = {
   currency: 'AED', image: '', status: 'draft', stock: 0,
 };
 
-const inp: React.CSSProperties = {
-  width: '100%', padding: '10px 14px', borderRadius: '10px',
-  border: '1px solid rgba(255,255,255,0.15)',
-  background: 'rgba(255,255,255,0.06)',
-  color: '#fff', fontSize: '14px', outline: 'none', fontFamily: 'inherit',
-};
-
-const lbl: React.CSSProperties = {
-  fontSize: '12px', fontWeight: 500, color: 'rgba(255,255,255,0.5)',
-  letterSpacing: '0.06em', textTransform: 'uppercase',
-  marginBottom: '6px', display: 'block',
+const s = {
+  page: { minHeight: '100vh', background: '#FAF7F2', padding: '0' },
+  inner: { maxWidth: 1100, margin: '0 auto' },
+  header: { display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'space-between' as const, marginBottom: '1.5rem' },
+  title: { fontSize: '1.25rem', fontWeight: 600, margin: '0 0 0.25rem', color: '#2C2420' },
+  subtitle: { color: '#8C7D6D', margin: '0', fontSize: '0.875rem' },
+  addBtn: { height: '40px', padding: '0 1.25rem', borderRadius: '9999px', background: '#5A4A3A', color: '#FFFFFF', fontWeight: 600, fontSize: '0.875rem', border: 'none', cursor: 'pointer' },
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' },
+  card: { background: '#FFFFFF', borderRadius: '12px', border: '1px solid #E5DDD2', overflow: 'hidden' },
+  cardImg: { height: '160px', background: '#F0EBE3', overflow: 'hidden' },
+  cardBody: { padding: '0.875rem' },
+  cardTitleRow: { display: 'flex' as const, justifyContent: 'space-between' as const, alignItems: 'flex-start' as const, marginBottom: '0.375rem' },
+  cardTitle: { fontSize: '0.9rem', fontWeight: 600, color: '#2C2420', flex: 1, margin: 0, lineHeight: 1.3 },
+  statusBadge: (status: string) => ({
+    fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px',
+    background: status === 'active' ? '#D1FAE5' : '#F0EBE3',
+    color: status === 'active' ? '#065F46' : '#8C7D6D',
+    marginLeft: '0.5rem', whiteSpace: 'nowrap' as const,
+  }),
+  price: { fontSize: '1rem', fontWeight: 700, color: '#5A4A3A', fontFamily: 'monospace', marginBottom: '0.75rem' },
+  actions: { display: 'flex' as const, gap: '0.5rem' },
+  editBtn: { flex: 1, height: '32px', borderRadius: '8px', background: '#F0EBE3', border: '1px solid #E5DDD2', color: '#5A4A3A', fontSize: '0.8rem', cursor: 'pointer' },
+  deleteBtn: { height: '32px', padding: '0 1rem', borderRadius: '8px', background: '#FEF2F2', border: '1px solid #FECACA', color: '#DC2626', fontSize: '0.8rem', cursor: 'pointer' },
+  loading: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1rem' },
+  skeleton: (i: number) => ({ height: 280, borderRadius: '12px', background: '#F0EBE3' }),
+  empty: { textAlign: 'center' as const, padding: '4rem 0', color: '#8C7D6D' },
+  error: { background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: '10px', padding: '0.75rem 1rem', color: '#DC2626', fontSize: '0.85rem', marginBottom: '1.25rem' },
+  modal: { position: 'fixed' as const, inset: 0, zIndex: 50, display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'center' as const, background: 'rgba(44,36,32,0.4)', backdropFilter: 'blur(4px)', padding: '1.25rem' },
+  modalContent: { width: '100%', maxWidth: '520px', maxHeight: '90vh', overflowY: 'auto' as const, background: '#FFFFFF', borderRadius: '16px', padding: '1.5rem' },
+  modalHeader: { display: 'flex' as const, justifyContent: 'space-between' as const, alignItems: 'center' as const, marginBottom: '1.25rem' },
+  modalTitle: { fontSize: '1.125rem', fontWeight: 600, color: '#2C2420', margin: 0 },
+  closeBtn: { background: 'none', border: 'none', color: '#8C7D6D', fontSize: '1.25rem', cursor: 'pointer' },
+  field: { marginBottom: '1rem' },
+  label: { display: 'block' as const, fontSize: '0.8rem', fontWeight: 500, color: '#5A4A3A', marginBottom: '0.375rem' },
+  input: { width: '100%', padding: '0.625rem 0.75rem', borderRadius: '8px', border: '1px solid #E5DDD2', background: '#FAF7F2', color: '#2C2420', fontSize: '0.875rem', outline: 'none', boxSizing: 'border-box' as const },
+  textarea: { width: '100%', padding: '0.625rem 0.75rem', borderRadius: '8px', border: '1px solid #E5DDD2', background: '#FAF7F2', color: '#2C2420', fontSize: '0.875rem', outline: 'none', height: '80px', resize: 'vertical' as const, boxSizing: 'border-box' as const, fontFamily: 'inherit' },
+  row: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' },
+  select: { padding: '0.625rem 0.75rem', borderRadius: '8px', border: '1px solid #E5DDD2', background: '#FAF7F2', color: '#2C2420', fontSize: '0.875rem', outline: 'none', cursor: 'pointer', width: '100%', boxSizing: 'border-box' as const },
+  uploadBtn: { height: '40px', padding: '0 1rem', borderRadius: '8px', background: '#F0EBE3', border: '1px solid #E5DDD2', color: '#5A4A3A', fontSize: '0.8rem', cursor: 'pointer', display: 'flex' as const, alignItems: 'center' as const, gap: '0.375rem', whiteSpace: 'nowrap' as const },
+  saveBtn: (disabled: boolean) => ({ width: '100%', height: '44px', borderRadius: '10px', background: disabled ? '#C8A27A' : '#5A4A3A', color: '#FFFFFF', fontWeight: 600, fontSize: '0.9rem', border: 'none', cursor: disabled ? 'not-allowed' : 'pointer', marginTop: '0.25rem' }),
+  preview: { marginTop: '0.5rem', width: '100%', height: '120px', objectFit: 'cover' as const, borderRadius: '8px', border: '1px solid #E5DDD2' },
 };
 
 export default function ProductsPage() {
@@ -80,60 +110,45 @@ export default function ProductsPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%)', padding: '32px 24px', fontFamily: '"Space Grotesk", sans-serif' }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-
-        {/* Header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
+    <div style={s.page}>
+      <div style={s.inner}>
+        <div style={s.header}>
           <div>
-            <h1 style={{ fontSize: '28px', fontWeight: 700, color: '#fff', margin: 0 }}>Products</h1>
-            <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '14px', marginTop: '4px' }}>{products.length} item{products.length !== 1 ? 's' : ''}</p>
+            <h1 style={s.title}>Products</h1>
+            <p style={s.subtitle}>{products.length} item{products.length !== 1 ? 's' : ''}</p>
           </div>
-          <button onClick={openAdd} style={{ height: '44px', padding: '0 24px', borderRadius: '999px', background: 'rgba(255,255,255,0.95)', color: '#3730a3', fontWeight: 700, fontSize: '14px', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}>
-            + Add Product
-          </button>
+          <button onClick={openAdd} style={s.addBtn}>+ Add Product</button>
         </div>
 
         {error && !modal && (
-          <div style={{ background: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '10px', padding: '12px 16px', color: '#fca5a5', fontSize: '14px', marginBottom: '20px' }}>
-            {error}
-          </div>
+          <div style={s.error}>{error}</div>
         )}
 
-        {/* Grid */}
         {loading ? (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '16px' }}>
-            {[...Array(6)].map((_, i) => <div key={i} style={{ height: 280, borderRadius: '16px', background: 'rgba(255,255,255,0.06)' }} />)}
+          <div style={s.loading}>
+            {[...Array(6)].map((_, i) => <div key={i} style={s.skeleton(i)} />)}
           </div>
         ) : products.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgba(255,255,255,0.4)' }}>
-            <div style={{ fontSize: '48px', marginBottom: '16px' }}>📦</div>
-            <p>No products yet. Add your first one.</p>
-          </div>
+          <div style={s.empty}><p>No products yet. Add your first one.</p></div>
         ) : (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '16px' }}>
+          <div style={s.grid}>
             {products.map(p => (
-              <div key={p.id} style={{ borderRadius: '16px', background: 'rgba(255,255,255,0.07)', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.12)', overflow: 'hidden' }}>
-                <div style={{ height: '160px', background: 'rgba(255,255,255,0.05)', overflow: 'hidden' }}>
+              <div key={p.id} style={s.card}>
+                <div style={s.cardImg}>
                   {p.image
                     ? <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.2)', fontSize: '32px' }}>🖼</div>
+                    : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C8A27A', fontSize: '2rem' }}>🖼</div>
                   }
                 </div>
-                <div style={{ padding: '14px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px' }}>
-                    <h3 style={{ color: '#fff', fontSize: '15px', fontWeight: 600, flex: 1, margin: 0, lineHeight: 1.3 }}>{p.title}</h3>
-                    <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '99px', background: p.status === 'active' ? 'rgba(34,197,94,0.2)' : 'rgba(255,255,255,0.1)', color: p.status === 'active' ? '#86efac' : 'rgba(255,255,255,0.5)', marginLeft: '8px' }}>
-                      {p.status}
-                    </span>
+                <div style={s.cardBody}>
+                  <div style={s.cardTitleRow}>
+                    <h3 style={s.cardTitle}>{p.title}</h3>
+                    <span style={s.statusBadge(p.status)}>{p.status}</span>
                   </div>
-                  <p style={{ fontSize: '17px', fontWeight: 700, color: '#c7d2fe', fontFamily: '"JetBrains Mono", monospace', marginBottom: '4px' }}>
-                    {p.price.toLocaleString()} {p.currency}
-                  </p>
-                  <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', marginBottom: '12px' }}>Stock: {p.stock}</p>
-                  <div style={{ display: 'flex', gap: '8px' }}>
-                    <button onClick={() => openEdit(p)} style={{ flex: 1, height: '32px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', fontSize: '13px', cursor: 'pointer', fontFamily: 'inherit' }}>Edit</button>
-                    <button onClick={() => remove(p.id)} style={{ height: '32px', padding: '0 14px', borderRadius: '8px', background: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.25)', color: '#fca5a5', fontSize: '13px', cursor: 'pointer', fontFamily: 'inherit' }}>Delete</button>
+                  <div style={s.price}>{p.price.toLocaleString()} {p.currency}</div>
+                  <div style={s.actions}>
+                    <button onClick={() => openEdit(p)} style={s.editBtn}>Edit</button>
+                    <button onClick={() => remove(p.id)} style={s.deleteBtn}>Delete</button>
                   </div>
                 </div>
               </div>
@@ -142,59 +157,55 @@ export default function ProductsPage() {
         )}
       </div>
 
-      {/* Modal */}
       {modal && (
-        <div
-          style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', padding: '20px' }}
-          onClick={e => { if (e.target === e.currentTarget) closeModal(); }}
-        >
-          <div style={{ width: '100%', maxWidth: '520px', maxHeight: '90vh', overflowY: 'auto', background: 'rgba(30,27,75,0.94)', backdropFilter: 'blur(32px)', WebkitBackdropFilter: 'blur(32px)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '20px', padding: '28px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-              <h2 style={{ fontSize: '20px', fontWeight: 700, color: '#fff', margin: 0 }}>{modal === 'add' ? 'Add Product' : 'Edit Product'}</h2>
-              <button onClick={closeModal} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', fontSize: '22px', cursor: 'pointer' }}>×</button>
+        <div style={s.modal} onClick={e => { if (e.target === e.currentTarget) closeModal(); }}>
+          <div style={s.modalContent}>
+            <div style={s.modalHeader}>
+              <h2 style={s.modalTitle}>{modal === 'add' ? 'Add Product' : 'Edit Product'}</h2>
+              <button onClick={closeModal} style={s.closeBtn}>×</button>
             </div>
 
-            {error && <div style={{ background: 'rgba(239,68,68,0.15)', border: '1px solid rgba(239,68,68,0.3)', borderRadius: '10px', padding: '10px 14px', color: '#fca5a5', fontSize: '13px', marginBottom: '18px' }}>{error}</div>}
+            {error && <div style={s.error}>{error}</div>}
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <div>
-                <label style={lbl}>Title *</label>
-                <input style={inp} value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="Product name" />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={s.field}>
+                <label style={s.label}>Title *</label>
+                <input style={s.input} value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="Product name" />
               </div>
-              <div>
-                <label style={lbl}>Description</label>
-                <textarea style={{ ...inp, height: '80px', resize: 'vertical' }} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Optional" />
+              <div style={s.field}>
+                <label style={s.label}>Description</label>
+                <textarea style={s.textarea} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Optional" />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div>
-                  <label style={lbl}>Price *</label>
-                  <input style={inp} type="number" min="0" step="0.01" value={form.price} onChange={e => setForm(f => ({ ...f, price: parseFloat(e.target.value) || 0 }))} />
+              <div style={s.row}>
+                <div style={s.field}>
+                  <label style={s.label}>Price *</label>
+                  <input style={s.input} type="number" min="0" step="0.01" value={form.price} onChange={e => setForm(f => ({ ...f, price: parseFloat(e.target.value) || 0 }))} />
                 </div>
-                <div>
-                  <label style={lbl}>Currency</label>
-                  <select style={{ ...inp, cursor: 'pointer' }} value={form.currency} onChange={e => setForm(f => ({ ...f, currency: e.target.value }))}>
-                    {['AED','SAR','KWD','EGP','USD','EUR'].map(c => <option key={c} value={c} style={{ background: '#1e1b4b' }}>{c}</option>)}
+                <div style={s.field}>
+                  <label style={s.label}>Currency</label>
+                  <select style={s.select} value={form.currency} onChange={e => setForm(f => ({ ...f, currency: e.target.value }))}>
+                    {['AED','SAR','KWD','EGP','USD','EUR'].map(c => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div>
-                  <label style={lbl}>Stock</label>
-                  <input style={inp} type="number" min="0" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: parseInt(e.target.value) || 0 }))} />
+              <div style={s.row}>
+                <div style={s.field}>
+                  <label style={s.label}>Stock</label>
+                  <input style={s.input} type="number" min="0" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: parseInt(e.target.value) || 0 }))} />
                 </div>
-                <div>
-                  <label style={lbl}>Status</label>
-                  <select style={{ ...inp, cursor: 'pointer' }} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value as 'active' | 'draft' }))}>
-                    <option value="draft" style={{ background: '#1e1b4b' }}>Draft</option>
-                    <option value="active" style={{ background: '#1e1b4b' }}>Active</option>
+                <div style={s.field}>
+                  <label style={s.label}>Status</label>
+                  <select style={s.select} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value as 'active' | 'draft' }))}>
+                    <option value="draft">Draft</option>
+                    <option value="active">Active</option>
                   </select>
                 </div>
               </div>
-              <div>
-                <label style={lbl}>Image</label>
-                <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
-                  <input style={{ ...inp, flex: 1 }} value={form.image} onChange={e => setForm(f => ({ ...f, image: e.target.value }))} placeholder="Paste image URL..." />
-                  <label style={{ height: '42px', padding: '0 16px', borderRadius: '10px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)', color: '#fff', fontSize: '13px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
+              <div style={s.field}>
+                <label style={s.label}>Image</label>
+                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                  <input style={{ ...s.input, flex: 1 }} value={form.image} onChange={e => setForm(f => ({ ...f, image: e.target.value }))} placeholder="Paste image URL..." />
+                  <label style={s.uploadBtn}>
                     <span>Upload</span>
                     <input
                       type="file"
@@ -208,20 +219,14 @@ export default function ProductsPage() {
                         try {
                           const url = await uploadProductImage(fd);
                           setForm(f => ({ ...f, image: url }));
-                        } catch {
-                          setError('Upload failed');
-                        }
+                        } catch { setError('Upload failed'); }
                       }}
                     />
                   </label>
                 </div>
-                {form.image && <img src={form.image} alt="" style={{ marginTop: '8px', width: '100%', height: '120px', objectFit: 'cover', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)' }} />}
+                {form.image && <img src={form.image} alt="" style={s.preview} />}
               </div>
-              <button
-                onClick={submit}
-                disabled={isPending}
-                style={{ height: '48px', borderRadius: '999px', background: isPending ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.95)', color: '#3730a3', fontWeight: 700, fontSize: '15px', border: 'none', cursor: isPending ? 'not-allowed' : 'pointer', fontFamily: 'inherit', marginTop: '4px' }}
-              >
+              <button onClick={submit} disabled={isPending} style={s.saveBtn(isPending)}>
                 {isPending ? 'Saving…' : modal === 'add' ? 'Add Product' : 'Save Changes'}
               </button>
             </div>

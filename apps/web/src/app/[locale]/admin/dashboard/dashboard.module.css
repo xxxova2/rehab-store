@@ -11,14 +11,14 @@
 }
 
 .statCard {
-  background: var(--md-sys-color-surface-container-low);
-  border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid #E5DDD2;
+  border-radius: 12px;
   padding: 1.25rem 1.5rem;
 }
 
 .statCard.lowStock {
-  border-color: var(--md-sys-color-error);
+  border-color: #FCA5A5;
 }
 
 .statLabel {
@@ -26,7 +26,7 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
   margin-bottom: 0.5rem;
 }
 
@@ -34,13 +34,13 @@
   display: block;
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--md-sys-color-on-surface);
+  color: #2C2420;
   margin-bottom: 0.25rem;
 }
 
 .statTrend {
   font-size: 0.85rem;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
 }
 
 .contentGrid {
@@ -50,9 +50,9 @@
 }
 
 .sectionCard {
-  background: var(--md-sys-color-surface-container-low);
-  border: 1px solid var(--md-sys-color-outline-variant);
-  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid #E5DDD2;
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -61,19 +61,19 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  border-bottom: 1px solid #E5DDD2;
 }
 
 .sectionTitle {
   font-size: 1rem;
   font-weight: 500;
   margin: 0;
-  color: var(--md-sys-color-on-surface);
+  color: #2C2420;
 }
 
 .sectionLink {
   font-size: 0.85rem;
-  color: var(--md-sys-color-primary);
+  color: #5A4A3A;
   text-decoration: none;
 }
 
@@ -96,16 +96,16 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
   font-weight: 500;
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  border-bottom: 1px solid #E5DDD2;
 }
 
 .ordersTable td {
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
-  color: var(--md-sys-color-on-surface);
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  color: #2C2420;
+  border-bottom: 1px solid #E5DDD2;
 }
 
 .orderId {
@@ -128,42 +128,42 @@
 
 .orderDate {
   font-size: 0.85rem;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
 }
 
 .statusBadge {
   display: inline-block;
   padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-full);
+  border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 500;
 }
 
 .statusBadge.pending {
-  background: var(--md-sys-color-surface-container-high);
-  color: var(--md-sys-color-on-surface-variant);
+  background: #FEF3C7;
+  color: #92400E;
 }
 
 .statusBadge.processing {
-  background: var(--md-sys-color-tertiary-container);
-  color: var(--md-sys-color-on-tertiary-container);
+  background: #DBEAFE;
+  color: #1E40AF;
 }
 
 .statusBadge.shipped {
-  background: var(--md-sys-color-primary-container);
-  color: var(--md-sys-color-on-primary-container);
+  background: #E0E7FF;
+  color: #3730A3;
 }
 
 .statusBadge.delivered,
 .statusBadge.completed {
-  background: var(--md-sys-color-secondary-container);
-  color: var(--md-sys-color-on-secondary-container);
+  background: #D1FAE5;
+  color: #065F46;
 }
 
 .statusBadge.cancelled,
 .statusBadge.refunded {
-  background: var(--md-sys-color-error-container);
-  color: var(--md-sys-color-on-error-container);
+  background: #FEE2E2;
+  color: #991B1B;
 }
 
 .errorState {
@@ -175,12 +175,12 @@
   font-size: 1rem;
   font-weight: 500;
   margin: 0 0 0.5rem;
-  color: var(--md-sys-color-on-surface);
+  color: #2C2420;
 }
 
 .errorStateText {
   font-size: 0.85rem;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
   margin: 0;
 }
 
@@ -199,62 +199,11 @@
   font-size: 1rem;
   font-weight: 500;
   margin: 0 0 0.5rem;
-  color: var(--md-sys-color-on-surface);
+  color: #2C2420;
 }
 
 .emptyStateText {
   font-size: 0.85rem;
-  color: var(--md-sys-color-on-surface-variant);
+  color: #8C7D6D;
   margin: 0;
-}
-
-.lowStockList {
-  padding: 0.5rem;
-}
-
-.lowStockItem {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem;
-  border-radius: var(--radius-md);
-}
-
-.lowStockItem:hover {
-  background: var(--md-sys-color-surface-container-high);
-}
-
-.lowStockInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.lowStockProductTitle {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--md-sys-color-on-surface);
-}
-
-.lowStockVariantTitle {
-  font-size: 0.75rem;
-  color: var(--md-sys-color-on-surface-variant);
-}
-
-.lowStockQty {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-}
-
-.lowStockQty.low {
-  color: var(--md-sys-color-tertiary);
-  background: var(--md-sys-color-tertiary-container);
-}
-
-.lowStockQty.critical {
-  color: var(--md-sys-color-error);
-  background: var(--md-sys-color-error-container);
 }
