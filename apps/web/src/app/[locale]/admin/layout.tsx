@@ -8,15 +8,15 @@ import { ToastProvider } from './_components/ToastContext';
 const ADMIN_HIDE_TOPBAR = `[data-testid="top-bar"] { display: none !important; }`;
 
 const ADMIN_NAV = [
-  { key: 'dashboard', pathname: '/admin/dashboard', label: 'admin.nav.dashboard' },
-  { key: 'products', pathname: '/admin/products', label: 'admin.nav.products' },
-  { key: 'inventory', pathname: '/admin/inventory', label: 'admin.nav.inventory' },
-  { key: 'pricing', pathname: '/admin/pricing', label: 'admin.nav.pricing' },
-  { key: 'orders', pathname: '/admin/orders', label: 'admin.nav.orders' },
-  { key: 'collections', pathname: '/admin/collections', label: 'admin.nav.collections' },
-  { key: 'customers', pathname: '/admin/customers', label: 'admin.nav.customers' },
-  { key: 'settings', pathname: '/admin/settings', label: 'admin.nav.settings' },
-  { key: 'adminUsers', pathname: '/admin/users', label: 'admin.nav.adminUsers' },
+  { key: 'dashboard', pathname: '/admin/dashboard', label: 'nav.dashboard' },
+  { key: 'products', pathname: '/admin/products', label: 'nav.products' },
+  { key: 'inventory', pathname: '/admin/inventory', label: 'nav.inventory' },
+  { key: 'pricing', pathname: '/admin/pricing', label: 'nav.pricing' },
+  { key: 'orders', pathname: '/admin/orders', label: 'nav.orders' },
+  { key: 'collections', pathname: '/admin/collections', label: 'nav.collections' },
+  { key: 'customers', pathname: '/admin/customers', label: 'nav.customers' },
+  { key: 'settings', pathname: '/admin/settings', label: 'nav.settings' },
+  { key: 'adminUsers', pathname: '/admin/users', label: 'nav.adminUsers' },
 ] as const;
 
 async function getAdminToken(): Promise<string | null> {
