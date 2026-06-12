@@ -93,9 +93,14 @@ export default function ProductsPage() {
     if (form.price <= 0) { setError('Price must be greater than 0'); return; }
     startTransition(async () => {
       try {
-        if (modal === 'edit' && editing) await updateProduct(editing.id, form);
-        else await createProduct(form);
-        await load();
+        if (modal === 'edit' && editing) {
+          await updateProduct(editing.id, form);
+          setProducts(prev => prev.map(p => p.id === editing.id ? { ...p, ...form } : p));
+        } else {
+          const result = await createProduct(form) as any;
+          const pid = result?.product?.id ?? `prod_${Date.now()}`;
+          setProducts(prev => [...prev, { id: pid, ...form }]);
+        }
         closeModal();
       } catch { setError('Save failed'); }
     });
@@ -104,7 +109,7 @@ export default function ProductsPage() {
   function remove(id: string) {
     if (!confirm('Delete this product?')) return;
     startTransition(async () => {
-      try { await deleteProduct(id); await load(); }
+      try { await deleteProduct(id); setProducts(prev => prev.filter(p => p.id !== id)); }
       catch { setError('Delete failed'); }
     });
   }
