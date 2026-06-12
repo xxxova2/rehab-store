@@ -26,6 +26,19 @@
   border-bottom: 1px solid #E5DDD2;
 }
 
+.backLink {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #8C7D6D;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.backLink:hover {
+  color: #5A4A3A;
+}
+
 .brand {
   display: flex;
   align-items: center;

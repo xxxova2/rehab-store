@@ -74,16 +74,26 @@ export function AdminShell({
       <aside className={styles.sidebar} aria-label={sidebarLabel}>
         <div className={styles.sidebarHeader}>
           <a
-            href={`/${locale}/admin/dashboard`}
+            href={`/${locale}`}
             className={styles.brand}
             onClick={(e) => {
               e.preventDefault();
-              handleNavigate(`/${locale}/admin/dashboard`);
+              router.push(`/${locale}`);
             }}
           >
             <span className={styles.brandMark}>R</span>
             <span className={styles.brandWord}>rehab</span>
             <span className={styles.brandTag}>admin</span>
+          </a>
+          <a
+            href={`/${locale}`}
+            className={styles.backLink}
+            onClick={(e) => {
+              e.preventDefault();
+              router.push(`/${locale}`);
+            }}
+          >
+            ← Back to Store
           </a>
         </div>
         <nav className={styles.sidebarNav}>

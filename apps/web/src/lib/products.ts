@@ -5,9 +5,38 @@ import collectionsJson from '@/data/collections.json';
 
 const localStore = new Map<string, Product>();
 
+function getFs() {
+  try { return { fs: require('fs'), path: require('path') }; } catch { return null; }
+}
+
+function loadPersistedProducts(): Product[] | null {
+  try {
+    const deps = getFs();
+    if (!deps) return null;
+    const DATA_FILE = '/tmp/products-data.json';
+    if (deps.fs.existsSync(DATA_FILE)) {
+      return JSON.parse(deps.fs.readFileSync(DATA_FILE, 'utf-8'));
+    }
+  } catch {}
+  return null;
+}
+
+function persistProducts(): void {
+  try {
+    const deps = getFs();
+    if (!deps) return;
+    const DATA_FILE = '/tmp/products-data.json';
+    const dir = deps.path.dirname(DATA_FILE);
+    if (!deps.fs.existsSync(dir)) deps.fs.mkdirSync(dir, { recursive: true });
+    deps.fs.writeFileSync(DATA_FILE, JSON.stringify(Array.from(localStore.values()), null, 2));
+  } catch {}
+}
+
 function initLocalStore() {
   if (localStore.size === 0) {
-    for (const p of (productsJson as Product[])) {
+    const persisted = loadPersistedProducts();
+    const source = persisted ?? (productsJson as Product[]);
+    for (const p of source) {
       localStore.set(p.id, p);
     }
   }
@@ -254,6 +283,7 @@ export async function createProduct(data: CreateProductInput) {
   } else {
     initLocalStore();
     localStore.set(id, productData);
+    persistProducts();
   }
 
   return { product: productData };
@@ -289,6 +319,7 @@ export async function updateProduct(id: string, data: CreateProductInput) {
     const existing = localStore.get(id)!;
     localStore.set(id, { ...existing, ...patch, slug });
   }
+  persistProducts();
   return { product: localStore.get(id) };
 }
 
@@ -300,6 +331,7 @@ export async function deleteProduct(id: string) {
   } else {
     initLocalStore();
     localStore.delete(id);
+    persistProducts();
   }
   return { success: true };
 }
