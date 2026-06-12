@@ -2,35 +2,6 @@
 
 import { createProduct as libCreate, updateProduct as libUpdate, deleteProduct as libDelete, getAllProducts } from '@/lib/products';
 import type { CreateProductInput } from '@/lib/products';
-import type { Product } from '@rehab/types';
-import fs from 'fs';
-import path from 'path';
-
-const DATA_FILE = '/tmp/products-data.json';
-
-function loadPersisted(): Product[] | null {
-  try {
-    if (fs.existsSync(DATA_FILE)) {
-      return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
-    }
-  } catch {}
-  return null;
-}
-
-function persistAll(products: Product[]) {
-  try {
-    const dir = path.dirname(DATA_FILE);
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(DATA_FILE, JSON.stringify(products, null, 2));
-  } catch {}
-}
-
-async function getAllProductsWithPersist(): Promise<Product[]> {
-  const persisted = loadPersisted();
-  if (persisted && persisted.length > 0) return persisted;
-  const all = await getAllProducts();
-  return all as unknown as Product[];
-}
 
 export type AdminProduct = {
   id: string;
@@ -57,27 +28,18 @@ function toAdminProduct(p: any): AdminProduct {
 }
 
 export async function getProducts(): Promise<AdminProduct[]> {
-  const products = await getAllProductsWithPersist();
+  const products = await getAllProducts();
   return products.map(toAdminProduct);
 }
 
 export async function createProduct(data: CreateProductInput) {
-  const result = await libCreate(data);
-  const all = await getAllProductsWithPersist();
-  persistAll(all);
-  return result;
+  return libCreate(data);
 }
 
 export async function updateProduct(id: string, data: CreateProductInput) {
-  const result = await libUpdate(id, data);
-  const all = await getAllProductsWithPersist();
-  persistAll(all);
-  return result;
+  return libUpdate(id, data);
 }
 
 export async function deleteProduct(id: string) {
-  const result = await libDelete(id);
-  const all = await getAllProductsWithPersist();
-  persistAll(all);
-  return result;
+  return libDelete(id);
 }
