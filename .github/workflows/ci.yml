@@ -39,6 +39,9 @@ jobs:
         run: npx playwright install --with-deps
       - name: Build web app
         run: npm run build --workspace=@rehab/web
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
       - name: Run E2E
         run: npx playwright test --project=chromium --project=firefox --project=webkit
       - name: Upload report
