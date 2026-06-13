@@ -1,11 +1,11 @@
-import { cookies } from 'next/headers';
+import { getSession } from '@/lib/supabase-auth';
 import { getTranslations } from 'next-intl/server';
 import type { AppLocale } from '@rehab/types';
 import { AdminShell } from './AdminShell';
 import { AuthGuard } from './AuthGuard';
 import { ToastProvider } from './_components/ToastContext';
 
-const ADMIN_HIDE_TOPBAR = `[data-testid="top-bar"] { display: none !important; }`;
+const ADMIN_HIDE_TOPBAR = `[data-testid=\"top-bar\"] { display: none !important; }`;
 
 const ADMIN_NAV = [
   { key: 'dashboard', pathname: '/admin/dashboard', label: 'nav.dashboard' },
@@ -19,16 +19,6 @@ const ADMIN_NAV = [
   { key: 'adminUsers', pathname: '/admin/users', label: 'nav.adminUsers' },
 ] as const;
 
-async function getAdminToken(): Promise<string | null> {
-  const cookieStore = await cookies();
-  return cookieStore.get('rehab_admin_token')?.value ?? null;
-}
-
-async function getAdminEmail(): Promise<string | null> {
-  const cookieStore = await cookies();
-  return cookieStore.get('rehab_admin_email')?.value ?? null;
-}
-
 export default async function AdminLayout({
   children,
   params,
@@ -37,11 +27,11 @@ export default async function AdminLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const token = await getAdminToken();
-  const email = await getAdminEmail();
+  const session = await getSession();
+  const email = session?.user?.email ?? null;
   const t = await getTranslations('admin');
 
-  if (!token) {
+  if (!session) {
     return (
       <AuthGuard isAuthenticated={false} locale={locale}>
         <style>{ADMIN_HIDE_TOPBAR}</style>

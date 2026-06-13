@@ -1,3 +1,13 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "plugins": ["import"],
+  "rules": {
+    "import/no-unused-modules": ["warn", {
+      "unusedExports": true,
+      "ignoreExports": [
+        "src/app/**",
+        "src/middleware.ts"
+      ]
+    }]
+  }
 }

@@ -38,7 +38,7 @@ export function convertFromAED(aedCents: number, target: Currency): number {
 /**
  * Format a price in `currency` for display in `locale`.
  * Examples:
- *   formatPrice(129000, 'AED', 'ar') -> 'د.إ ١٬٢٩٠٫٠٠' (browser AR locale uses Arabic-Indic digits unless overridden)
+ *   formatPrice(129000, 'AED', 'ar') -> 'د.إ ١٬٢٩٠٫٠٠' (Arabic-Indic digits)
  *   formatPrice(129000, 'AED', 'en') -> 'AED 1,290.00'
  *   formatPrice(129000, 'AED', 'ar', { westernDigits: true }) -> 'د.إ 1,290.00'
  */
@@ -50,33 +50,24 @@ export function formatPrice(
 ): string {
   const value = convertFromAED(aedCents, currency);
   const target = CURRENCY_LABELS[currency];
-  // Build a BCP-47 tag that targets the right number system
-  // 'ar' + westernDigits=true => 'en-US-u-nu-latn' style override via locale string
-  const numLocale = locale === 'ar' && options.westernDigits
-    ? 'en-US'
-    : locale === 'ar' ? 'ar-AE' : 'en-US';
 
-  const formatter = new Intl.NumberFormat(numLocale, {
+  if (locale === 'ar') {
+    // Arabic locale: custom symbol + Arabic-Indic or western digits
+    const numFmtLocale = options.westernDigits ? 'en-US' : 'ar-AE';
+    const numFmt = new Intl.NumberFormat(numFmtLocale, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value / 100);
+    return `${target.symbol} ${numFmt}`;
+  }
+
+  // English / default locale: let Intl render the full currency string
+  return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  });
-
-  if (currency === 'AED' || currency === 'SAR' || currency === 'KWD' || currency === 'EGP') {
-    // For Arab currencies: show Arabic symbol first, then the latin number group
-    if (locale === 'ar') {
-      const numFmt = new Intl.NumberFormat('en-US', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(value / 100);
-      return options.westernDigits
-        ? `${target.symbol} ${numFmt}`
-        : `${target.symbol} \u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669`.charAt(0) + new Intl.NumberFormat('ar-AE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value / 100);
-    }
-  }
-
-  return formatter.format(value / 100);
+  }).format(value / 100);
 }
 
 /** Detect the user's preferred currency from Accept-Language (or default to AED). */

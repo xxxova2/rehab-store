@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useTransition } from 'react';
 import { Link, useRouter } from '../../i18n/routing';
 import { LOCALE_FLAGS } from '../../i18n/routing';
+import type { AppHref } from '../../i18n/routing';
 import { CartCount } from './cart-count';
 import type { AppLocale } from '@rehab/types';
 import styles from './home-tab-nav.module.css';
@@ -67,7 +68,7 @@ function LangToggle({ locale }: { locale: AppLocale }) {
   const handleToggle = () => {
     startTransition(() => {
       const path = pathname.replace(/^\/(ar|en)/, '') || '/';
-      router.replace(path as any, { locale: nextLocale });
+      router.replace(path as AppHref, { locale: nextLocale });
     });
   };
 

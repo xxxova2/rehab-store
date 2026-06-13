@@ -9,10 +9,11 @@ interface PriceItem {
   priceCents: number;
   currency: string;
   image: string;
+  inStock: boolean;
 }
 
 const s = {
-  page: { padding: '1.5rem' },
+  page: { background: '#FAF7F2', minHeight: '100vh', padding: '1.5rem' },
   header: { display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'space-between' as const, marginBottom: '1.5rem' },
   title: { fontSize: '1.25rem', fontWeight: 600, margin: '0 0 0.25rem', color: '#2C2420' },
   subtitle: { color: '#8C7D6D', margin: '0', fontSize: '0.875rem' },
@@ -43,10 +44,11 @@ export default function PricingPage() {
       const products = await getAllProducts();
       const mapped = products.map(p => ({
         id: p.id,
-        title: (p.title as any)?.en ?? p.title ?? '',
+        title: p.title.en,
         priceCents: p.basePriceCents ?? 0,
         currency: p.baseCurrency ?? 'AED',
-        image: (p.images as any)?.[0]?.url ?? '',
+        image: p.images[0]?.url ?? '',
+        inStock: p.inStock !== false,
       }));
       setItems(mapped);
       const initial: Record<string, { price: string; currency: string }> = {};
@@ -64,11 +66,13 @@ export default function PricingPage() {
     setSaving(s => ({ ...s, [id]: true }));
     startTransition(async () => {
       try {
+        const item = items.find(i => i.id === id);
+        const status = item?.inStock === false ? 'draft' : 'active';
         await updateProduct(id, {
-          title: items.find(i => i.id === id)?.title ?? '',
+          title: item?.title ?? '',
           price: parseFloat(edit.price) || 0,
           currency: edit.currency,
-          status: 'active',
+          status,
           stock: 0,
         });
         showToast('Price updated');

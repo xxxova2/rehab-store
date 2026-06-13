@@ -1,19 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getSupabaseAdmin } from '@/lib/supabase';
-
-interface OrderRow {
-  id: string;
-  order_number: string;
-  customer_name: string;
-  customer_phone: string;
-  total_amount: number;
-  currency: string;
-  status: string;
-  created_at: string;
-  items: any[];
-}
+import { getSupabaseAdmin, ordersTable } from '@/lib/supabase';
+import type { OrderRow, OrderItem } from '@/lib/db-types';
 
 const statusColors: Record<string, { bg: string; text: string }> = {
   pending: { bg: '#FEF3C7', text: '#92400E' },
@@ -24,7 +13,7 @@ const statusColors: Record<string, { bg: string; text: string }> = {
 };
 
 const s = {
-  page: { padding: '1.5rem' },
+  page: { background: '#FAF7F2', minHeight: '100vh', padding: '1.5rem' },
   header: { display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'space-between' as const, marginBottom: '1.5rem' },
   title: { fontSize: '1.25rem', fontWeight: 600, margin: '0 0 0.25rem', color: '#2C2420' },
   subtitle: { color: '#8C7D6D', margin: '0', fontSize: '0.875rem' },
@@ -53,7 +42,7 @@ export default function OrdersPage() {
     setLoading(true);
     try {
       const supabase = getSupabaseAdmin();
-      const { data } = await supabase.from('orders').select('*').order('created_at', { ascending: false }) as any;
+      const { data } = await ordersTable(supabase).select('*').order('created_at', { ascending: false });
       setOrders(data ?? []);
     } catch { setOrders([]); }
     finally { setLoading(false); }
@@ -125,8 +114,7 @@ export default function OrdersPage() {
             </div>
             {selected.items && selected.items.length > 0 && (
               <div>
-                <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#2C2420', margin: '0 0 0.5rem' }}>Items</h3>
-                {(selected.items as any[]).map((item: any, i: number) => (
+                <h3 style={{ fontSize: '0.9rem', fontWeight: 600, color: '#2C2420', margin: '0 0 0.5rem' }}>Items</h3>                        {(selected.items ?? []).map((item: OrderItem, i: number) => (
                   <div key={i} style={{ display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid #F0EBE3', fontSize: '0.85rem' }}>
                     <span>{item.name} x{item.quantity}</span>
                     <span style={{ fontFamily: 'monospace' }}>{selected.currency} {Number(item.price).toLocaleString()}</span>

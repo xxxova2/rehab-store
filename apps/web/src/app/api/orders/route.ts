@@ -1,14 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSupabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin, ordersTable } from '@/lib/supabase';
+import type { OrderItem } from '@/lib/db-types';
 import { sendOrderNotification, formatOrderMessage } from '@/lib/whatsapp';
-
-interface OrderItem {
-  name: string;
-  quantity: number;
-  price: number;
-  color?: string;
-  size?: string;
-}
 
 interface CreateOrderRequest {
   customer_name: string;
@@ -46,8 +39,7 @@ export async function POST(request: NextRequest) {
     const orderNumber = `ORD-${Date.now()}`;
 
     // Create order in Supabase
-    const { data: order, error: orderError } = await (supabase
-      .from('orders') as any)
+    const { data: order, error: orderError } = await ordersTable(supabase)
       .insert({
         order_number: orderNumber,
         customer_name: body.customer_name,
@@ -99,8 +91,7 @@ export async function POST(request: NextRequest) {
 
     // Update order with WhatsApp status
     if (whatsappResult.success) {
-      await (supabase
-        .from('orders') as any)
+      await ordersTable(supabase)
         .update({
           whatsapp_sent: true,
           whatsapp_sent_at: new Date().toISOString(),

@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  background: #FAF7F2;
+  min-height: 100vh;
+  padding: 1.5rem;
 }
 
 .statsGrid {

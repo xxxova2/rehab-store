@@ -58,3 +58,5 @@ tools/
 screenshot-*.png
 ar_*.html
 en_*.html
+
+.vercel

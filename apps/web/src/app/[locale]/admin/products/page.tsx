@@ -15,9 +15,28 @@ type Product = {
   stock: number;
 };
 
-const empty: Omit<Product, 'id'> = {
-  title: '', description: '', price: 0,
+type ExtendedForm = {
+  titleEn: string;
+  titleAr: string;
+  description: string;
+  price: number;
+  currency: string;
+  image: string;
+  status: 'active' | 'draft';
+  stock: number;
+  category: string;
+  sizes: string;
+  colors: string;
+};
+
+const CATEGORIES = ['dresses', 'tops', 'bottoms', 'knitwear', 'outerwear', 'accessories', 'shoes'];
+
+const SIZE_OPTIONS = ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL'];
+
+const emptyForm: ExtendedForm = {
+  titleEn: '', titleAr: '', description: '', price: 0,
   currency: 'AED', image: '', status: 'draft', stock: 0,
+  category: 'dresses', sizes: 'S,M,L', colors: '',
 };
 
 const s = {
@@ -48,7 +67,7 @@ const s = {
   empty: { textAlign: 'center' as const, padding: '4rem 0', color: '#8C7D6D' },
   error: { background: '#FEF2F2', border: '1px solid #FECACA', borderRadius: '10px', padding: '0.75rem 1rem', color: '#DC2626', fontSize: '0.85rem', marginBottom: '1.25rem' },
   modal: { position: 'fixed' as const, inset: 0, zIndex: 50, display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'center' as const, background: 'rgba(44,36,32,0.4)', backdropFilter: 'blur(4px)', padding: '1.25rem' },
-  modalContent: { width: '100%', maxWidth: '520px', maxHeight: '90vh', overflowY: 'auto' as const, background: '#FFFFFF', borderRadius: '16px', padding: '1.5rem' },
+  modalContent: { width: '100%', maxWidth: '560px', maxHeight: '90vh', overflowY: 'auto' as const, background: '#FFFFFF', borderRadius: '16px', padding: '1.5rem' },
   modalHeader: { display: 'flex' as const, justifyContent: 'space-between' as const, alignItems: 'center' as const, marginBottom: '1.25rem' },
   modalTitle: { fontSize: '1.125rem', fontWeight: 600, color: '#2C2420', margin: 0 },
   closeBtn: { background: 'none', border: 'none', color: '#8C7D6D', fontSize: '1.25rem', cursor: 'pointer' },
@@ -61,6 +80,10 @@ const s = {
   uploadBtn: { height: '40px', padding: '0 1rem', borderRadius: '8px', background: '#F0EBE3', border: '1px solid #E5DDD2', color: '#5A4A3A', fontSize: '0.8rem', cursor: 'pointer', display: 'flex' as const, alignItems: 'center' as const, gap: '0.375rem', whiteSpace: 'nowrap' as const },
   saveBtn: (disabled: boolean) => ({ width: '100%', height: '44px', borderRadius: '10px', background: disabled ? '#C8A27A' : '#5A4A3A', color: '#FFFFFF', fontWeight: 600, fontSize: '0.9rem', border: 'none', cursor: disabled ? 'not-allowed' : 'pointer', marginTop: '0.25rem' }),
   preview: { marginTop: '0.5rem', width: '100%', height: '120px', objectFit: 'cover' as const, borderRadius: '8px', border: '1px solid #E5DDD2' },
+  chip: (selected: boolean) => ({
+    display: 'inline-block' as const, padding: '0.25rem 0.6rem', borderRadius: '6px', fontSize: '0.75rem', cursor: 'pointer', margin: '0.2rem',
+    background: selected ? '#5A4A3A' : '#F0EBE3', color: selected ? '#FFFFFF' : '#5A4A3A', fontWeight: selected ? 600 : 400, border: 'none',
+  }),
 };
 
 export default function ProductsPage() {
@@ -68,7 +91,7 @@ export default function ProductsPage() {
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState<'add' | 'edit' | null>(null);
   const [editing, setEditing] = useState<Product | null>(null);
-  const [form, setForm] = useState({ ...empty });
+  const [form, setForm] = useState<ExtendedForm>({ ...emptyForm });
   const [error, setError] = useState('');
   const [isPending, startTransition] = useTransition();
 
@@ -81,25 +104,77 @@ export default function ProductsPage() {
 
   useEffect(() => { load(); }, []);
 
-  function openAdd() { setForm({ ...empty }); setEditing(null); setModal('add'); setError(''); }
-  function openEdit(p: Product) {
-    setForm({ title: p.title, description: p.description ?? '', price: p.price, currency: p.currency, image: p.image ?? '', status: p.status, stock: p.stock });
+  function openAdd() { setForm({ ...emptyForm }); setEditing(null); setModal('add'); setError(''); }
+
+  function openEdit(p: Product & { titleAr?: string }) {
+    setForm({
+      titleEn: p.title,
+      titleAr: p.titleAr ?? '',
+      description: p.description ?? '',
+      price: p.price,
+      currency: p.currency,
+      image: p.image ?? '',
+      status: p.status,
+      stock: p.stock,
+      category: 'dresses',
+      sizes: 'S,M,L',
+      colors: '',
+    });
     setEditing(p); setModal('edit'); setError('');
   }
+
   function closeModal() { setModal(null); setEditing(null); setError(''); }
 
   function submit() {
-    if (!form.title.trim()) { setError('Title is required'); return; }
+    if (!form.titleEn.trim()) { setError('English name is required'); return; }
     if (form.price <= 0) { setError('Price must be greater than 0'); return; }
     startTransition(async () => {
       try {
         if (modal === 'edit' && editing) {
-          await updateProduct(editing.id, form);
-          setProducts(prev => prev.map(p => p.id === editing.id ? { ...p, ...form } : p));
+          await updateProduct(editing.id, {
+            title: form.titleEn,
+            titleAr: form.titleAr,
+            description: form.description,
+            price: form.price,
+            currency: form.currency,
+            image: form.image,
+            status: form.status,
+            stock: form.stock,
+            category: form.category,
+          });
+          setProducts(prev => prev.map(p => p.id === editing.id ? {
+            ...p,
+            title: form.titleEn,
+            description: form.description,
+            price: form.price,
+            currency: form.currency,
+            image: form.image,
+            status: form.status,
+            stock: form.stock,
+          } : p));
         } else {
-          const result = await createProduct(form) as any;
+          const result = await createProduct({
+            title: form.titleEn,
+            titleAr: form.titleAr,
+            description: form.description,
+            price: form.price,
+            currency: form.currency,
+            image: form.image,
+            status: form.status,
+            stock: form.stock,
+            category: form.category,
+          });
           const pid = result?.product?.id ?? `prod_${Date.now()}`;
-          setProducts(prev => [...prev, { id: pid, ...form }]);
+          setProducts(prev => [...prev, {
+            id: pid,
+            title: form.titleEn,
+            description: form.description,
+            price: form.price,
+            currency: form.currency,
+            image: form.image,
+            status: form.status,
+            stock: form.stock,
+          }]);
         }
         closeModal();
       } catch { setError('Save failed'); }
@@ -125,9 +200,7 @@ export default function ProductsPage() {
           <button onClick={openAdd} style={s.addBtn}>+ Add Product</button>
         </div>
 
-        {error && !modal && (
-          <div style={s.error}>{error}</div>
-        )}
+        {error && !modal && <div style={s.error}>{error}</div>}
 
         {loading ? (
           <div style={s.loading}>
@@ -142,7 +215,7 @@ export default function ProductsPage() {
                 <div style={s.cardImg}>
                   {p.image
                     ? <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C8A27A', fontSize: '2rem' }}>🖼</div>
+                    : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C8A27A', fontSize: '2rem' }}>◻</div>
                   }
                 </div>
                 <div style={s.cardBody}>
@@ -172,69 +245,96 @@ export default function ProductsPage() {
 
             {error && <div style={s.error}>{error}</div>}
 
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={s.row}>
               <div style={s.field}>
-                <label style={s.label}>Title *</label>
-                <input style={s.input} value={form.title} onChange={e => setForm(f => ({ ...f, title: e.target.value }))} placeholder="Product name" />
-              </div>
-              <div style={s.field}>
-                <label style={s.label}>Description</label>
-                <textarea style={s.textarea} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Optional" />
-              </div>
-              <div style={s.row}>
-                <div style={s.field}>
-                  <label style={s.label}>Price *</label>
-                  <input style={s.input} type="number" min="0" step="0.01" value={form.price} onChange={e => setForm(f => ({ ...f, price: parseFloat(e.target.value) || 0 }))} />
-                </div>
-                <div style={s.field}>
-                  <label style={s.label}>Currency</label>
-                  <select style={s.select} value={form.currency} onChange={e => setForm(f => ({ ...f, currency: e.target.value }))}>
-                    {['AED','SAR','KWD','EGP','USD','EUR'].map(c => <option key={c} value={c}>{c}</option>)}
-                  </select>
-                </div>
-              </div>
-              <div style={s.row}>
-                <div style={s.field}>
-                  <label style={s.label}>Stock</label>
-                  <input style={s.input} type="number" min="0" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: parseInt(e.target.value) || 0 }))} />
-                </div>
-                <div style={s.field}>
-                  <label style={s.label}>Status</label>
-                  <select style={s.select} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value as 'active' | 'draft' }))}>
-                    <option value="draft">Draft</option>
-                    <option value="active">Active</option>
-                  </select>
-                </div>
+                <label style={s.label}>Name (English) *</label>
+                <input style={s.input} value={form.titleEn} onChange={e => setForm(f => ({ ...f, titleEn: e.target.value }))} placeholder="Product name" />
               </div>
               <div style={s.field}>
-                <label style={s.label}>Image</label>
-                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                  <input style={{ ...s.input, flex: 1 }} value={form.image} onChange={e => setForm(f => ({ ...f, image: e.target.value }))} placeholder="Paste image URL..." />
-                  <label style={s.uploadBtn}>
-                    <span>Upload</span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      style={{ display: 'none' }}
-                      onChange={async (e) => {
-                        const file = e.target.files?.[0];
-                        if (!file) return;
-                        const fd = new FormData();
-                        fd.set('file', file);
-                        try {
-                          const url = await uploadProductImage(fd);
-                          setForm(f => ({ ...f, image: url }));
-                        } catch { setError('Upload failed'); }
-                      }}
-                    />
-                  </label>
-                </div>
-                {form.image && <img src={form.image} alt="" style={s.preview} />}
+                <label style={s.label}>Name (Arabic)</label>
+                <input style={s.input} value={form.titleAr} onChange={e => setForm(f => ({ ...f, titleAr: e.target.value }))} placeholder="اسم المنتج" dir="rtl" />
               </div>
-              <button onClick={submit} disabled={isPending} style={s.saveBtn(isPending)}>
-                {isPending ? 'Saving…' : modal === 'add' ? 'Add Product' : 'Save Changes'}
-              </button>
             </div>
+
+            <div style={s.field}>
+              <label style={s.label}>Description</label>
+              <textarea style={s.textarea} value={form.description} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} placeholder="Optional" />
+            </div>
+
+            <div style={s.row}>
+              <div style={s.field}>
+                <label style={s.label}>Category</label>
+                <select style={s.select} value={form.category} onChange={e => setForm(f => ({ ...f, category: e.target.value }))}>
+                  {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+              <div style={s.field}>
+                <label style={s.label}>Sizes (comma-separated)</label>
+                <input style={s.input} value={form.sizes} onChange={e => setForm(f => ({ ...f, sizes: e.target.value }))} placeholder="S,M,L,XL" />
+              </div>
+            </div>
+
+            <div style={s.row}>
+              <div style={s.field}>
+                <label style={s.label}>Price *</label>
+                <input style={s.input} type="number" min="0" step="0.01" value={form.price} onChange={e => setForm(f => ({ ...f, price: parseFloat(e.target.value) || 0 }))} />
+              </div>
+              <div style={s.field}>
+                <label style={s.label}>Currency</label>
+                <select style={s.select} value={form.currency} onChange={e => setForm(f => ({ ...f, currency: e.target.value }))}>
+                  {['AED','SAR','KWD','EGP','USD','EUR'].map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+            </div>
+
+            <div style={s.row}>
+              <div style={s.field}>
+                <label style={s.label}>Stock</label>
+                <input style={s.input} type="number" min="0" value={form.stock} onChange={e => setForm(f => ({ ...f, stock: parseInt(e.target.value) || 0 }))} />
+              </div>
+              <div style={s.field}>
+                <label style={s.label}>Status</label>
+                <select style={s.select} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value as 'active' | 'draft' }))}>
+                  <option value="draft">Draft</option>
+                  <option value="active">Active</option>
+                </select>
+              </div>
+            </div>
+
+            <div style={s.field}>
+              <label style={s.label}>Colors (comma-separated hex)</label>
+              <input style={s.input} value={form.colors} onChange={e => setForm(f => ({ ...f, colors: e.target.value }))} placeholder="#FFFFFF,#000000" />
+            </div>
+
+            <div style={s.field}>
+              <label style={s.label}>Image</label>
+              <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <input style={{ ...s.input, flex: 1 }} value={form.image} onChange={e => setForm(f => ({ ...f, image: e.target.value }))} placeholder="Paste image URL..." />
+                <label style={s.uploadBtn}>
+                  <span>Upload</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const fd = new FormData();
+                      fd.set('file', file);
+                      try {
+                        const url = await uploadProductImage(fd);
+                        setForm(f => ({ ...f, image: url }));
+                      } catch { setError('Upload failed'); }
+                    }}
+                  />
+                </label>
+              </div>
+              {form.image && <img src={form.image} alt="" style={s.preview} />}
+            </div>
+
+            <button onClick={submit} disabled={isPending} style={s.saveBtn(isPending)}>
+              {isPending ? 'Saving…' : modal === 'add' ? 'Add Product' : 'Save Changes'}
+            </button>
           </div>
         </div>
       )}

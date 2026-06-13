@@ -13,7 +13,7 @@ type CollectionItem = {
 };
 
 const styles = {
-  page: { padding: '1.5rem' },
+  page: { background: '#FAF7F2', minHeight: '100vh', padding: '1.5rem' },
   header: { display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'space-between' as const, marginBottom: '1.5rem' },
   title: { fontSize: '1.25rem', fontWeight: 600, margin: '0 0 0.25rem', color: '#2C2420' },
   subtitle: { color: '#8C7D6D', margin: '0', fontSize: '0.875rem' },
@@ -61,9 +61,9 @@ export default function CollectionsPage() {
       const all = await getAllCollections();
       setCollections(all.map(c => ({
         id: c.id,
-        title: (c.title as any)?.en ?? c.title ?? '',
+        title: c.title.en,
         slug: c.slug,
-        image: (c.hero as any)?.url ?? '',
+        image: c.hero?.url ?? '',
         productCount: c.productIds?.length ?? 0,
       })));
     } catch { showToast('Failed to load collections'); }

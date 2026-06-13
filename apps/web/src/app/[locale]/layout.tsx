@@ -3,7 +3,6 @@ import { Space_Grotesk, DM_Sans, JetBrains_Mono, Cairo } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { ThemeProvider } from '@/components/theme-provider';
-import { SplineBackground } from '@/components/spline-background';
 import './globals.css';
 import './theme.css';
 import '@rehab/tokens/tokens.css';
@@ -100,7 +99,6 @@ export default async function LocaleLayout({
       <body>
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <SplineBackground />
             <main id="main">{children}</main>
           </NextIntlClientProvider>
         </ThemeProvider>

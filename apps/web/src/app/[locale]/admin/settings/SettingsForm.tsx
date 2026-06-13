@@ -2,17 +2,7 @@
 
 import { useActionState } from 'react';
 import { saveStoreSettingsAction } from './actions';
-
-interface StoreSettings {
-  storeName: string;
-  storeEmail: string;
-  storePhone: string;
-  defaultCurrency: string;
-  defaultLocale: 'ar' | 'en';
-  socialInstagram?: string;
-  socialTikTok?: string;
-  shippingFreeAed: number;
-}
+import type { StoreSettings } from './actions';
 
 export function SettingsForm({
   locale,

@@ -1,19 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getSupabaseAdmin } from '@/lib/supabase';
-
-interface CustomerSummary {
-  phone: string;
-  name: string;
-  orderCount: number;
-  totalSpent: number;
-  currency: string;
-  lastOrder: string;
-}
+import { getCustomers, type CustomerSummary } from './actions';
 
 const s = {
-  page: { padding: '1.5rem' },
+  page: { background: '#FAF7F2', minHeight: '100vh', padding: '1.5rem' },
   header: { display: 'flex' as const, alignItems: 'center' as const, justifyContent: 'space-between' as const, marginBottom: '1.5rem' },
   title: { fontSize: '1.25rem', fontWeight: 600, margin: '0 0 0.25rem', color: '#2C2420' },
   subtitle: { color: '#8C7D6D', margin: '0', fontSize: '0.875rem' },
@@ -30,23 +21,7 @@ export default function CustomersPage() {
   async function load() {
     setLoading(true);
     try {
-      const supabase = getSupabaseAdmin();
-      const { data } = await supabase.from('orders').select('*').order('created_at', { ascending: false }) as any;
-      const orders: any[] = data ?? [];
-
-      const groups: Record<string, CustomerSummary> = {};
-      for (const o of orders) {
-        const phone = o.customer_phone ?? 'unknown';
-        if (!groups[phone]) {
-          groups[phone] = { phone, name: o.customer_name, orderCount: 0, totalSpent: 0, currency: o.currency ?? 'AED', lastOrder: o.created_at };
-        }
-        groups[phone].orderCount++;
-        groups[phone].totalSpent += Number(o.total_amount ?? 0);
-        if (new Date(o.created_at) > new Date(groups[phone].lastOrder)) {
-          groups[phone].lastOrder = o.created_at;
-        }
-      }
-      setCustomers(Object.values(groups).sort((a, b) => b.orderCount - a.orderCount));
+      setCustomers(await getCustomers());
     } catch { setCustomers([]); }
     finally { setLoading(false); }
   }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { createBrowserAuthClient } from '@/lib/supabase-browser';
 
 export default function AdminError({
   error,
@@ -8,9 +9,15 @@ export default function AdminError({
   error: Error & { digest?: string };
 }) {
   useEffect(() => {
-    if (error.name === 'AdminAuthError' || error.message.toLowerCase().includes('unauthorized') || error.message.toLowerCase().includes('token')) {
-      document.cookie = 'rehab_admin_token=; Path=/; Max-Age=0; SameSite=Lax';
-      document.cookie = 'rehab_admin_email=; Path=/; Max-Age=0; SameSite=Lax';
+    const isAuthError =
+      error.name === 'AdminAuthError' ||
+      error.message.toLowerCase().includes('unauthorized') ||
+      error.message.toLowerCase().includes('token') ||
+      error.message.toLowerCase().includes('session');
+
+    if (isAuthError) {
+      const supabase = createBrowserAuthClient();
+      supabase.auth.signOut().catch(() => {});
       const locale = window.location.pathname.startsWith('/ar/') ? 'ar' : 'en';
       window.location.replace(`/${locale}/admin/login`);
     }

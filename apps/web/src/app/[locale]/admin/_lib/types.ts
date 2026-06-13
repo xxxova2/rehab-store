@@ -314,13 +314,3 @@ export interface MedusaCustomer {
   updated_at?: string;
 }
 
-export interface StoreSettings {
-  storeName: string;
-  storeEmail: string;
-  storePhone: string;
-  defaultCurrency: string;
-  defaultLocale: 'ar' | 'en';
-  socialInstagram?: string;
-  socialTikTok?: string;
-  shippingFreeAed: number;
-}

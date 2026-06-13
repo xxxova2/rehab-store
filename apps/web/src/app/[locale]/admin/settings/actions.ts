@@ -1,46 +1,42 @@
 'use server';
 
-import { cookies } from 'next/headers';
 import { revalidatePath } from 'next/cache';
-import { adminFetch } from '../_lib/api';
+import { getSupabaseAdmin, storeSettingsTable } from '@/lib/supabase';
 
-const SETTINGS_PATH = 'src/app/[locale]/admin/_lib/store-settings.json';
+import type { StoreSettingsData } from '@/lib/db-types';
 
-interface StoreSettings {
-  storeName: string;
-  storeEmail: string;
-  storePhone: string;
-  defaultCurrency: string;
-  defaultLocale: 'ar' | 'en';
-  socialInstagram?: string;
-  socialTikTok?: string;
-  shippingFreeAed: number;
-}
+export type StoreSettings = StoreSettingsData;
+
+const DEFAULTS: StoreSettings = {
+  storeName: 'Rehab Store',
+  storeEmail: 'hello@rehab.store',
+  storePhone: '+971 4 123 4567',
+  defaultCurrency: 'AED',
+  defaultLocale: 'en',
+  socialInstagram: '',
+  socialTikTok: '',
+  shippingFreeAed: 500,
+};
 
 export async function getStoreSettings(): Promise<StoreSettings> {
   try {
-    const fs = await import('fs/promises');
-    const cwd = process.cwd();
-    const data = await fs.readFile(`${cwd}/${SETTINGS_PATH}`, 'utf-8');
-    return JSON.parse(data);
+    const supabase = getSupabaseAdmin();
+    const { data, error } = await storeSettingsTable(supabase)
+      .select('data')
+      .eq('id', 'default')
+      .single();
+
+    if (error || !data?.data) return DEFAULTS;
+    return { ...DEFAULTS, ...data.data } as StoreSettings;
   } catch {
-    return {
-      storeName: 'Rehab Store',
-      storeEmail: 'hello@rehab.store',
-      storePhone: '+971 4 123 4567',
-      defaultCurrency: 'AED',
-      defaultLocale: 'en',
-      socialInstagram: '',
-      socialTikTok: '',
-      shippingFreeAed: 500,
-    };
+    return DEFAULTS;
   }
 }
 
 export async function saveStoreSettingsAction(
   locale: string,
   _prevState: unknown,
-  formData: FormData
+  formData: FormData,
 ): Promise<{ success: boolean; error?: string }> {
   const storeName = (formData.get('storeName') as string) ?? '';
   const storeEmail = (formData.get('storeEmail') as string) ?? '';
@@ -63,9 +59,14 @@ export async function saveStoreSettingsAction(
   };
 
   try {
-    const fs = await import('fs/promises');
-    const cwd = process.cwd();
-    await fs.writeFile(`${cwd}/${SETTINGS_PATH}`, JSON.stringify(settings, null, 2), 'utf-8');
+    const supabase = getSupabaseAdmin();
+    const { error } = await storeSettingsTable(supabase).upsert(
+      { id: 'default', data: settings },
+      { onConflict: 'id' },
+    );
+
+    if (error) throw new Error(error.message);
+
     revalidatePath(`/${locale}/admin/settings`);
     return { success: true };
   } catch (error) {

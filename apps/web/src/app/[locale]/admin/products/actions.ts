@@ -6,6 +6,7 @@ import type { CreateProductInput } from '@/lib/products';
 export type AdminProduct = {
   id: string;
   title: string;
+  titleAr: string;
   description: string;
   price: number;
   currency: string;
@@ -17,7 +18,8 @@ export type AdminProduct = {
 function toAdminProduct(p: any): AdminProduct {
   return {
     id: p.id,
-    title: typeof p.title === 'object' ? (p.title.en ?? p.title.ar ?? '') : (p.title ?? ''),
+    title: typeof p.title === 'object' ? (p.title.en ?? '') : (p.title ?? ''),
+    titleAr: typeof p.title === 'object' ? (p.title.ar ?? '') : '',
     description: typeof p.description === 'object' ? (p.description.en ?? '') : (p.description ?? ''),
     price: p.basePriceCents ? p.basePriceCents / 100 : 0,
     currency: p.baseCurrency ?? 'AED',
@@ -32,11 +34,11 @@ export async function getProducts(): Promise<AdminProduct[]> {
   return products.map(toAdminProduct);
 }
 
-export async function createProduct(data: CreateProductInput) {
+export async function createProduct(data: CreateProductInput & { titleAr?: string }) {
   return libCreate(data);
 }
 
-export async function updateProduct(id: string, data: CreateProductInput) {
+export async function updateProduct(id: string, data: CreateProductInput & { titleAr?: string }) {
   return libUpdate(id, data);
 }
 

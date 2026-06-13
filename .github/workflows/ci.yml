@@ -55,3 +55,29 @@ jobs:
           name: test-results
           path: test-results/
           retention-days: 14
+
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [build, e2e]
+    # Only deploy on push to main, not on PRs
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    defaults:
+      run:
+        working-directory: ./apps/web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+      - run: npm ci
+      - name: Deploy to Vercel
+        # Requires these GitHub secrets:
+        #   VERCEL_TOKEN     — Create at https://vercel.com/account/tokens
+        #   VERCEL_ORG_ID    — team_o7E8Ah6Cz9kMBYFuMbW6FaFM
+        #   VERCEL_PROJECT_ID — prj_H7VzGRyH0p2MzkMXnB7jU7kBxLwD
+        run: npx vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}

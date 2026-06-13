@@ -58,7 +58,8 @@ export default async function ShopPage({
           return (
             <Link
               key={col.slug}
-              href={(isActive ? '/shop' : `/shop?collection=${col.slug}`) as any}
+              // @ts-expect-error — next-intl Href doesn't type query strings, but they work at runtime
+              href={isActive ? '/shop' : `/shop?collection=${col.slug}`}
               className={`${styles.filterBtn} ${isActive ? styles.filterActive : ''}`}
             >
               {pick(col.title, locale as AppLocale)}

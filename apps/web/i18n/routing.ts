@@ -40,6 +40,9 @@ export const LOCALE_DIR: Record<AppLocale, 'ltr' | 'rtl'> = {
   en: 'ltr',
 };
 
+/** Union of valid href paths for typed next-intl navigation. */
+export type AppHref = '/' | '/shop' | '/cart' | '/about' | '/lookbook' | '/admin/login';
+
 export function isAppLocale(value: string): value is AppLocale {
   return (routing.locales as readonly string[]).includes(value);
 }
