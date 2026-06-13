@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Space_Grotesk, DM_Sans, JetBrains_Mono, Cairo } from 'next/font/google';
+import { Playfair_Display, Inter, JetBrains_Mono, Cairo } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { ThemeProvider } from '@/components/theme-provider';
@@ -7,16 +7,17 @@ import './globals.css';
 import './theme.css';
 import '@rehab/tokens/tokens.css';
 
-const spaceGrotesk = Space_Grotesk({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700'],
 });
-const dmSans = DM_Sans({
-  subsets: ['latin'],
+const inter = Inter({
+  subsets: ['latin', 'latin-ext'],
   variable: '--font-body',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -77,7 +78,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} ${cairo.variable}`}
+      className={`${playfairDisplay.variable} ${inter.variable} ${jetbrainsMono.variable} ${cairo.variable}`}
     >
       <head>
         <script
