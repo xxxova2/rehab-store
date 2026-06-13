@@ -213,10 +213,7 @@ export default function ProductsPage() {
             {products.map(p => (
               <div key={p.id} style={s.card}>
                 <div style={s.cardImg}>
-                  {p.image
-                    ? <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    : <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C8A27A', fontSize: '2rem' }}>◻</div>
-                  }
+                  <ProductImage src={p.image} alt={p.title} />
                 </div>
                 <div style={s.cardBody}>
                   <div style={s.cardTitleRow}>
@@ -339,5 +336,26 @@ export default function ProductsPage() {
         </div>
       )}
     </div>
+  );
+}
+
+function ProductImage({ src, alt }: { src?: string; alt: string }) {
+  const [failed, setFailed] = useState(false);
+
+  if (!src || failed) {
+    return (
+      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#C8A27A', fontSize: '2rem', background: '#F0EBE3' }}>
+        ◻
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      onError={() => setFailed(true)}
+    />
   );
 }

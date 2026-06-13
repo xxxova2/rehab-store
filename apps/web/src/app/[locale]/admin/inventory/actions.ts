@@ -3,7 +3,11 @@
 import { getSupabaseAdmin, rowsAs, inventoryTable } from '@/lib/supabase';
 import type { InventoryRow } from '@/lib/db-types';
 
-export { getAllProducts as getInventoryProducts } from '@/lib/products';
+import { getAllProducts } from '@/lib/products';
+
+export async function getInventoryProducts() {
+  return getAllProducts();
+}
 
 export async function getInventory(): Promise<InventoryRow[]> {
   const supabase = getSupabaseAdmin();
