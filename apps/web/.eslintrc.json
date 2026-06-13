@@ -1,6 +1,6 @@
 {
   "extends": "next/core-web-vitals",
-  "plugins": ["import"],
+  "plugins": ["import", "@typescript-eslint"],
   "rules": {
     "import/no-unused-modules": ["warn", {
       "unusedExports": true,
