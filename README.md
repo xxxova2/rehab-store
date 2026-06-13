@@ -1,15 +1,17 @@
 # Rehab Store
 
 > 3D-friendly women's clothing webstore for the Rehab brand.
-> **Arabic-first, headless commerce, M3 design tokens, Next.js 15 + React Three Fiber, Medusa, Playwright.**
+> **Arabic-first, headless commerce, M3 design tokens, Next.js 15 + React Three Fiber, Supabase, Playwright.**
+
+[![CI](https://github.com/xxxova2/rehab-store/actions/workflows/ci.yml/badge.svg)](https://github.com/xxxova2/rehab-store/actions/workflows/ci.yml)
 
 ## Stack
 
 - **Frontend:** Next.js 15 (App Router) + TypeScript + React 18 + R3F + `@material/web`
 - **i18n:** next-intl with `[locale]` segment, Arabic default + English
-- **Backend:** Medusa.js (headless commerce) + Postgres + Redis
+- **Backend:** Supabase (Postgres + Auth + Storage) — previously Medusa.js
 - **Design:** Material 3 tokens from `material-foundation/material-theme-builder`
-- **Testing:** Playwright (Chromium, Firefox, WebKit) + `@playwright/mcp` for visual review
+- **Testing:** Playwright (Chromium, Firefox, WebKit) + vitest
 - **Package manager:** npm workspaces
 
 ## Repo layout
@@ -18,21 +20,15 @@
 .
 ├── apps/
 │   ├── web/         # Next.js storefront (AR + EN)
-│   └── medusa/      # Medusa backend
+│   └── medusa/      # Medusa backend (legacy)
 ├── packages/
 │   ├── ui/          # M3-themed web component wrappers
 │   ├── tokens/      # M3 design tokens (CSS vars)
 │   ├── three/       # R3F scenes, garment viewer, mannequin, AR
 │   └── types/       # Shared TypeScript types
-├── tools/
-│   ├── material-theme-builder/   # git clone (reference)
-│   └── playwright/               # git clone (reference)
-├── tests/
-│   ├── e2e/         # Playwright E2E tests
-│   └── visual/      # Playwright visual baselines
 ├── scripts/         # seed, asset-fetch, theme-export
 ├── infra/           # docker-compose, deploy configs
-└── .github/         # CI workflows
+└── .github/         # CI workflows (typecheck → E2E → Vercel deploy)
 ```
 
 ## Quick start
